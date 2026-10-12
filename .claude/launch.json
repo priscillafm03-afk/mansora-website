@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "mansora", "runtimeExecutable": "node", "runtimeArgs": ["scripts/dev-server.mjs"], "port": 3000 }
+  ]
+}
