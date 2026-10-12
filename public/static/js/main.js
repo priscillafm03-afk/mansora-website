@@ -2346,7 +2346,10 @@ const languageCodeMap = {
     ar: "ar",
     zh: "zh-CN",
     ja: "ja",
-    ko: "ko"
+    ko: "ko",
+    tw: "ak",   /* Twi (Akan) */
+    ga: "gaa",  /* Ga */
+    ig: "ig"    /* Igbo */
 };
 
 

@@ -44,6 +44,7 @@ Delete any other `A` record on `@`, such as GoDaddy's parking record. Vercel iss
 - Each page has its own title, meta description, canonical URL, Open Graph and Twitter tags.
 - JSON-LD structured data: `ProfessionalService`/`AccountingService` (address, phone, opening hours), `WebSite`, breadcrumbs and a page type for every page.
 - `robots.txt`, `sitemap.xml`, favicons, an Apple touch icon, a web manifest and a 1200×630 social share image.
+- Language selector: English, French, Spanish, German, Portuguese, Italian, Arabic, Chinese, Japanese, Korean, Twi, Ga and Igbo (Google Translate).
 - Images converted to WebP (12 MB → 1.5 MB). Below-the-fold images lazy-load. Fonts load via `<link>` with preconnect instead of a CSS `@import`.
 
 After launch, add the site to Google Search Console and Bing Webmaster Tools and submit `https://mansora-consulting.com/sitemap.xml`. Then create a Google Business Profile for the Haatso Bohye office.
