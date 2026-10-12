@@ -28,22 +28,44 @@ Open http://localhost:3000. No install step and no dependencies.
    - `RESEND_AUDIENCE_ID` (optional): Resend audience that newsletter sign-ups are added to.
 3. Redeploy.
 
-## Enquiry workflow (Resend)
+## Automations
 
 When someone sends the Contact Us form (`api/contact.js`):
 
-| When | Who gets it | What |
-|------|-------------|------|
-| Instantly | Team (`CONTACT_TO_EMAIL`) | New-enquiry alert with a reference number (e.g. `MCB-261012-K7Q4`), the details, and one-tap Reply, Call and WhatsApp buttons. Replying goes straight to the enquirer. |
-| Instantly | Enquirer | Branded confirmation with their reference, the service they asked about, what happens next and the phone numbers. Replies go to the team. |
-| After 24 hours | Team | Follow-up reminder ("ignore if you've already been in touch"). |
-| After 2 days | Enquirer | Gentle check-in with the phone numbers. |
+| When | What |
+|------|------|
+| Instantly | Row added to the **MANSORA Leads** Google Sheet (Enquiries tab), even if email fails |
+| Instantly | New-enquiry alert to the team, with a reference number (e.g. `MCB-261012-K7Q4`) and one-tap Reply / Call / WhatsApp buttons |
+| Instantly | Branded confirmation to the enquirer (service, package, what happens next, phone numbers) |
+| Instantly | WhatsApp message to the business phone (if CallMeBot is set up) |
+| After 24 hours | Follow-up reminder to the team |
+| After 2 days | Gentle check-in to the enquirer |
 
-Newsletter sign-ups (`api/subscribe.js`) receive a welcome email, the team gets a notification, and the subscriber is added to the Resend audience if `RESEND_AUDIENCE_ID` is set.
+Newsletter sign-ups (`api/subscribe.js`) get a welcome email, the team is notified, the subscriber is added to **Resend Contacts** (send newsletters from Resend > Broadcasts) and logged on the sheet's Subscribers tab.
 
-The team alert is sent first and has to succeed. If it fails, the form opens the visitor's email app with the enquiry already filled in, so no lead is lost. Every email carries an idempotency key, so retries never send duplicates. Emails are templated in `api/_templates.js`.
+The lead sheet is written by a Google Apps Script web app owned by priscilla@mansora-consulting.com (source: `integrations/google-sheet/Code.gs`).
 
-To test locally, run `npm run dev`. Without a `RESEND_API_KEY`, emails are logged to the terminal instead of being sent.
+### Settings (Vercel > Settings > Environment Variables)
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend key from the **mansora-consulting** Resend team (the domain is verified there) |
+| `CONTACT_FROM_EMAIL` | `MANSORA Consulting <hello@mansora-consulting.com>` |
+| `CONTACT_TO_EMAIL` | optional, defaults to `priscilla@mansora-consulting.com` |
+| `SHEETS_WEBHOOK_URL` | the Apps Script web-app URL (`.../exec`) |
+| `WHATSAPP_PHONE`, `CALLMEBOT_API_KEY` | optional WhatsApp alerts |
+| `TEAM_REMINDER_HOURS`, `FOLLOW_UP_DAYS` | optional, defaults 24 and 2; `0` turns that email off |
+
+### Logs
+
+- **Google Sheet "MANSORA Leads"**: the permanent record of every enquiry and subscriber
+- **Resend > Emails**: every email and its status (delivered, bounced, scheduled)
+- **Vercel > Logs**: one `{"event":"enquiry", ...}` line per submission showing each step, plus any errors
+
+### Testing
+
+- Live: `RESEND_API_KEY=... npm run test:live` sends a `[TEST]` enquiry, prints each step, checks Resend and cancels the scheduled test emails. Add `-- --newsletter` to test the sign-up too.
+- Local: `npm run dev` logs emails to the terminal instead of sending them.
 
 ## Domain (GoDaddy → Vercel)
 

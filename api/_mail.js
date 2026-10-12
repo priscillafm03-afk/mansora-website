@@ -5,7 +5,7 @@
 //   CONTACT_FROM_EMAIL    required: sender on a domain verified in Resend,
 //                         e.g. "MANSORA Consulting <hello@mansora-consulting.com>"
 //   CONTACT_TO_EMAIL      team inbox(es), comma-separated (default priscilla@mansora-consulting.com)
-//   RESEND_AUDIENCE_ID    optional: Resend audience that newsletter sign-ups are added to
+//   RESEND_AUDIENCE_ID    optional: legacy Resend audience; by default sign-ups go to Resend Contacts
 //   TEAM_REMINDER_HOURS   optional: hours until the team follow-up reminder (default 24, 0 = off)
 //   FOLLOW_UP_DAYS        optional: days until the client follow-up email (default 2, 0 = off)
 //   SITE_URL              optional: public site URL used in emails (default https://mansora-consulting.com)
@@ -136,24 +136,28 @@ export async function sendEmail({ to, subject, html, text, replyTo, scheduledAt,
   }
 }
 
-// Adds a contact to the Resend audience if RESEND_AUDIENCE_ID is set. Never throws.
+// Adds a newsletter subscriber to Resend Contacts (send newsletters from Resend > Broadcasts).
+// Uses the legacy audience endpoint only if RESEND_AUDIENCE_ID is set. Never throws.
 export async function addToAudience(email, firstName) {
+  if (env("MAIL_MOCK") === "1") { console.log(`[MAIL_MOCK] contact add ${email}`); return { ok: true }; }
+  if (!env("RESEND_API_KEY")) return { ok: true, skipped: true };
   const audience = env("RESEND_AUDIENCE_ID");
-  if (!audience) return { ok: true, skipped: true };
-  if (env("MAIL_MOCK") === "1") { console.log(`[MAIL_MOCK] audience add ${email}`); return { ok: true }; }
+  const url = audience
+    ? `https://api.resend.com/audiences/${encodeURIComponent(audience)}/contacts`
+    : "https://api.resend.com/contacts";
   try {
-    const res = await fetch(`https://api.resend.com/audiences/${encodeURIComponent(audience)}/contacts`, {
+    const res = await fetch(url, {
       method: "POST",
       headers: { Authorization: `Bearer ${env("RESEND_API_KEY")}`, "Content-Type": "application/json" },
       body: JSON.stringify({ email, first_name: firstName || undefined, unsubscribed: false }),
     });
-    if (!res.ok && res.status !== 409) {
-      console.error("Resend audience error", res.status, await res.text());
-      return { ok: false };
-    }
-    return { ok: true };
+    if (res.ok) return { ok: true };
+    const text = await res.text();
+    if (res.status === 409 || /already exists/i.test(text)) return { ok: true, existing: true };
+    console.error("Resend contact error", res.status, text.slice(0, 300));
+    return { ok: false };
   } catch (err) {
-    console.error("Resend audience request failed", err);
+    console.error("Resend contact request failed", String(err));
     return { ok: false };
   }
 }

@@ -56,6 +56,16 @@ function doGet() {
   return reply({ ok: true, service: 'MANSORA lead log' });
 }
 
+// Run once from the editor to create both tabs and grant access.
+function setup() {
+  getOrCreateTab(TABS.enquiry);
+  getOrCreateTab(TABS.subscriber);
+  var first = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet1');
+  if (first && first.getLastRow() === 0 && SpreadsheetApp.getActiveSpreadsheet().getSheets().length > 1) {
+    SpreadsheetApp.getActiveSpreadsheet().deleteSheet(first);
+  }
+}
+
 function getOrCreateTab(tab) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheetByName(tab.name);
