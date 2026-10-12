@@ -1572,7 +1572,7 @@
                                 "\nService: " + (data.get("service") || "") +
                                 "\n\n" + (data.get("message") || "");
                             window.location.href =
-                                "mailto:Mansora@ghana.com?subject=" +
+                                "mailto:priscilla@mansora-consulting.com?subject=" +
                                 encodeURIComponent("Website enquiry: " + (data.get("service") || "")) +
                                 "&body=" + encodeURIComponent(body);
                         }

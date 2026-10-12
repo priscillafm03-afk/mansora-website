@@ -4,7 +4,7 @@
 //   RESEND_API_KEY        required: API key from https://resend.com
 //   CONTACT_FROM_EMAIL    required: sender on a domain verified in Resend,
 //                         e.g. "MANSORA Consulting <hello@mansora-consulting.com>"
-//   CONTACT_TO_EMAIL      team inbox(es), comma-separated (default ataakonadu50@gmail.com)
+//   CONTACT_TO_EMAIL      team inbox(es), comma-separated (default priscilla@mansora-consulting.com)
 //   RESEND_AUDIENCE_ID    optional: Resend audience that newsletter sign-ups are added to
 //   TEAM_REMINDER_HOURS   optional: hours until the team follow-up reminder (default 24, 0 = off)
 //   FOLLOW_UP_DAYS        optional: days until the client follow-up email (default 2, 0 = off)
@@ -16,7 +16,7 @@ const MAX_BODY_BYTES = 20_000;
 
 export const env = (key, fallback = "") => (process.env[key] ?? "").trim() || fallback;
 export const SITE_URL = () => env("SITE_URL", "https://mansora-consulting.com").replace(/\/$/, "");
-export const TEAM_EMAILS = () => env("CONTACT_TO_EMAIL", "ataakonadu50@gmail.com").split(",").map((s) => s.trim()).filter(Boolean);
+export const TEAM_EMAILS = () => env("CONTACT_TO_EMAIL", "priscilla@mansora-consulting.com").split(",").map((s) => s.trim()).filter(Boolean);
 
 // Best-effort per-instance rate limit (5 requests / 10 min per IP).
 const hits = new Map();

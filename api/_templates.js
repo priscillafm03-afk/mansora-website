@@ -37,7 +37,7 @@ function shell({ preheader, body, footerNote = "" }) {
   <tr><td style="padding:22px 8px 0;font:400 16px/1.6 ${SANS};color:${C.muted};">
     <div style="font:700 17px/1.4 ${SERIF};color:${C.goldText};margin-bottom:6px;">We Make Your Business Better.</div>
     ${PHONES.map((ph) => `<a href="tel:${TEL(ph)}" style="color:${C.plum};text-decoration:none;font-weight:700;">${ph}</a>`).join(" &nbsp;•&nbsp; ")}<br>
-    <a href="mailto:ataakonadu50@gmail.com" style="color:${C.plum};">ataakonadu50@gmail.com</a> &nbsp;•&nbsp; <a href="${site}" style="color:${C.plum};">${site.replace(/^https?:\/\//, "")}</a><br>
+    <a href="mailto:priscilla@mansora-consulting.com" style="color:${C.plum};">priscilla@mansora-consulting.com</a> &nbsp;•&nbsp; <a href="${site}" style="color:${C.plum};">${site.replace(/^https?:\/\//, "")}</a><br>
     Haatso Bohye, Accra, Ghana • Open 8 AM to 10 PM, every day
     ${footerNote ? `<div style="margin-top:12px;">${footerNote}</div>` : ""}
   </td></tr>

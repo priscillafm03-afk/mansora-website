@@ -23,7 +23,7 @@ Open http://localhost:3000. No install step and no dependencies.
 2. Under **Settings → Environment Variables**, add:
    - `RESEND_API_KEY`: from https://resend.com
    - `CONTACT_FROM_EMAIL`: a sender on a domain verified in Resend, e.g. `MANSORA Consulting <hello@mansora-consulting.com>`
-   - `CONTACT_TO_EMAIL` (optional): team inbox, default `ataakonadu50@gmail.com`. Separate several addresses with commas.
+   - `CONTACT_TO_EMAIL` (optional): team inbox, default `priscilla@mansora-consulting.com`. Separate several addresses with commas.
    - `TEAM_REMINDER_HOURS` (optional, default `24`) and `FOLLOW_UP_DAYS` (optional, default `2`). Set either to `0` to turn that email off.
    - `RESEND_AUDIENCE_ID` (optional): Resend audience that newsletter sign-ups are added to.
 3. Redeploy.
