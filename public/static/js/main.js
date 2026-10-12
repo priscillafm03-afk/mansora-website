@@ -2566,3 +2566,16 @@ if (document.body) {
         }
     );
 }
+
+/* =========================================================
+   MANSORA: package prefill
+   /contact-us?package=gold pre-selects the package in the form.
+   ========================================================= */
+(function () {
+    var select = document.getElementById("package");
+    if (!select) return;
+    var wanted = new URLSearchParams(window.location.search).get("package");
+    if (wanted && select.querySelector('option[value="' + wanted.toLowerCase() + '"]')) {
+        select.value = wanted.toLowerCase();
+    }
+})();

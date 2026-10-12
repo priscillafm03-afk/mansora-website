@@ -93,3 +93,83 @@ body { font-size: 1.0625rem; }
 }
 .section-heading h2::after { background: linear-gradient(90deg, #c48b17, #e6b74c) !important; }
 .nav-back-home, .back-home-text { white-space: nowrap; }
+
+/* =========================================================
+   PACKAGES PAGE (deck: Gold / Silver / Platinum / MYOP)
+   ========================================================= */
+.pkg-section { padding: 90px 0; background: #ffffff; }
+.pkg-section--tint { background: #fffaf1; }
+.pkg-lead { font-size: 1.15rem !important; color: #5e5269; max-width: 46rem; margin: 0 auto; line-height: 1.6; }
+.pkg-note { text-align: center; margin-top: 28px; }
+
+.pkg-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 48px; align-items: stretch; }
+.pkg-card {
+    display: flex; flex-direction: column;
+    padding: 30px 26px; border-radius: 28px;
+    border: 1px solid #e1d7e8; background: #fffaf1;
+    box-shadow: 0 1px 2px rgba(56, 20, 92, .06), 0 14px 34px rgba(56, 20, 92, .09);
+    scroll-margin-top: 110px;
+}
+.pkg-card--silver, .pkg-card--myop { background: #f5eefd; }
+.pkg-badge {
+    text-align: center; padding: 12px 16px; border-radius: 14px; margin-bottom: 20px;
+    font-weight: 800; font-size: 1.15rem; letter-spacing: .08em;
+    box-shadow: 0 6px 14px rgba(56, 20, 92, .16);
+}
+.pkg-badge--gold { background: #c48b17; color: #221634; }
+.pkg-badge--silver { background: #5c2d85; color: #ffffff; }
+.pkg-badge--platinum { background: #e6b74c; color: #221634; }
+.pkg-badge--myop { background: #38145c; color: #ffffff; }
+.pkg-card h3 { font-family: var(--mansora-serif); color: #38145c; font-size: 1.45rem; text-align: center; margin: 0 0 10px; line-height: 1.25; }
+.pkg-summary { color: #5e5269; font-size: 1.0625rem; text-align: center; margin: 0 0 18px; line-height: 1.55; }
+.pkg-group h4 { color: #38145c; font-size: 1.0625rem; margin: 16px 0 8px; }
+.pkg-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.pkg-list li { position: relative; padding-left: 28px; font-size: 1.0625rem; line-height: 1.5; color: #221634; }
+.pkg-list li::before { content: "✓"; position: absolute; left: 0; top: 0; font-weight: 800; color: #9a6a0b; }
+.pkg-best { margin: auto 0 0; padding-top: 18px; border-top: 1px solid #e1d7e8; color: #5e5269; font-size: 1.0625rem; line-height: 1.5; }
+.pkg-card .pkg-group:last-of-type { margin-bottom: 18px; }
+.pkg-cta { margin-top: 18px; width: 100%; justify-content: center; text-align: center; }
+
+.pkg-table-wrap { overflow-x: auto; margin-top: 40px; border-radius: 24px; border: 1px solid #e1d7e8; background: #ffffff; box-shadow: 0 14px 34px rgba(56, 20, 92, .08); }
+.pkg-table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 1.0625rem; }
+.pkg-table th, .pkg-table td { padding: 16px 18px; text-align: center; border-bottom: 1px solid #e1d7e8; }
+.pkg-table thead th { font-weight: 800; letter-spacing: .06em; }
+.pkg-table thead th:first-child { background: #38145c; color: #ffffff; text-align: left; letter-spacing: 0; }
+.pkg-th--gold { background: #c48b17; color: #221634; }
+.pkg-th--silver { background: #5c2d85; color: #ffffff; }
+.pkg-th--platinum { background: #e6b74c; color: #221634; }
+.pkg-th--myop { background: #38145c; color: #ffffff; }
+.pkg-table tbody th { text-align: left; color: #38145c; font-weight: 700; }
+.pkg-table tbody tr:nth-child(even) { background: #f5eefd; }
+.pkg-table tbody tr:last-child th, .pkg-table tbody tr:last-child td { border-bottom: 0; }
+.pkg-yes { color: #2d7a53; font-weight: 800; font-size: 1.3rem; }
+.pkg-no { color: #5e5269; }
+.pkg-sel { color: #2d7a53; font-weight: 700; }
+
+.pkg-faq { max-width: 860px; }
+.pkg-faq-item { background: #ffffff; border: 1px solid #e1d7e8; border-radius: 18px; padding: 0 24px; margin-top: 14px; box-shadow: 0 6px 18px rgba(56, 20, 92, .06); }
+.pkg-faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 1.15rem; color: #38145c; }
+.pkg-faq-item summary::-webkit-details-marker { display: none; }
+.pkg-faq-item summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: #9a6a0b; }
+.pkg-faq-item[open] summary::after { content: "−"; }
+.pkg-faq-item p { margin: 0; padding: 0 0 20px; color: #5e5269; font-size: 1.0625rem; line-height: 1.6; }
+
+@media (max-width: 1100px) { .pkg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .pkg-grid { grid-template-columns: 1fr; } .pkg-section { padding: 64px 0; } .pkg-faq-item { padding: 0 18px; } }
+
+.pkg-form-link { display: inline-block; margin-top: 8px; font-size: 1rem; font-weight: 700; color: #5c2d85; }
+
+/* ---------- Desktop nav fit (7 links + language) ----------
+   Mobile (<=768px) keeps the original menu. */
+@media (min-width: 769px) and (max-width: 1600px) {
+    .brand-service { display: none !important; }
+    nav > .nav-links { gap: 18px !important; }
+}
+@media (min-width: 769px) and (max-width: 1240px) {
+    nav > .nav-links { gap: 12px !important; }
+    .nav-link, .nav-link b, .nav-contact-link, .nav-contact-link b, .back-home-text { font-size: 1rem !important; }
+}
+@media (min-width: 769px) and (max-width: 1060px) {
+    nav { flex-wrap: wrap; row-gap: 6px; }
+    nav > .nav-links { flex-wrap: wrap; justify-content: flex-end; }
+}

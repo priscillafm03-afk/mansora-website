@@ -7,6 +7,9 @@ const SANS = "Aptos,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 const SERIF = "Georgia,'Times New Roman',serif";
 
 export const PHONES = ["024 420 5134", "024 421 2404", "025 737 3765"];
+
+// Values of the optional "Which package interests you?" field.
+export const PACKAGE_NAMES = { gold: "MANSORA Gold", silver: "MANSORA Silver", platinum: "MANSORA Platinum", myop: "MYOP (Make Your Own Package)" };
 const TEL = (p) => "+233" + p.replace(/\s/g, "").slice(1);
 
 
@@ -66,6 +69,7 @@ export function teamAlert(lead) {
       ["Email", `<a href="mailto:${e(lead.email)}" style="color:${C.plum};">${e(lead.email)}</a>`],
       ["Phone", lead.phone ? e(lead.phone) : "Not given"],
       ["Service", e(lead.service)],
+      ["Package", PACKAGE_NAMES[lead.package] ? e(PACKAGE_NAMES[lead.package]) : "Not chosen"],
       ["Received", e(lead.receivedAt)],
     ])}
     ${h2("Their message")}
@@ -94,6 +98,7 @@ export function clientConfirmation(lead) {
     ${box(`
       <div style="font:700 16px/1.3 ${SANS};color:${C.goldText};margin-bottom:8px;">You asked about</div>
       <div style="font:700 22px/1.25 ${SERIF};color:${C.plum};">${e(lead.service)}</div>
+      ${PACKAGE_NAMES[lead.package] ? `<div style="font:400 17px/1.5 ${SANS};color:${C.muted};margin-top:6px;">Package: <strong style="color:${C.plum};">${e(PACKAGE_NAMES[lead.package])}</strong></div>` : ""}
     `)}
     ${h2("What happens next")}
     ${list([
@@ -111,7 +116,7 @@ export function clientConfirmation(lead) {
   return {
     subject: `We've received your enquiry, ${firstName(lead.name)} [${lead.ref}]`,
     html: shell({ preheader: `Thank you for contacting MANSORA. Your reference is ${lead.ref}.`, body }),
-    text: `Thank you, ${firstName(lead.name)}. We've received your enquiry (${lead.ref}).\n\nYou asked about: ${lead.service}.\n\nWhat happens next:\n1. A short discovery and scoping conversation\n2. We agree the support you need, onboarding and your fee\n3. We get to work\n\nCall us: ${PHONES.join(", ")}\nReply to this email to add anything.\n\nMANSORA Consulting & Business Solutions: We Make Your Business Better.`,
+    text: `Thank you, ${firstName(lead.name)}. We've received your enquiry (${lead.ref}).\n\nYou asked about: ${lead.service}${PACKAGE_NAMES[lead.package] ? " (" + PACKAGE_NAMES[lead.package] + ")" : ""}.\n\nWhat happens next:\n1. A short discovery and scoping conversation\n2. We agree the support you need, onboarding and your fee\n3. We get to work\n\nCall us: ${PHONES.join(", ")}\nReply to this email to add anything.\n\nMANSORA Consulting & Business Solutions: We Make Your Business Better.`,
   };
 }
 
@@ -120,7 +125,7 @@ export function teamReminder(lead) {
   const body = `
     ${h(`Follow-up check: ${e(lead.name)}`, 24)}
     ${p(`This enquiry came in on ${e(lead.receivedAt)}. If you've already been in touch, you can ignore this reminder.`)}
-    ${rows([["Reference", `<strong>${e(lead.ref)}</strong>`], ["Service", e(lead.service)], ["Email", e(lead.email)], ["Phone", lead.phone ? e(lead.phone) : "Not given"]])}
+    ${rows([["Reference", `<strong>${e(lead.ref)}</strong>`], ["Service", e(lead.service)], ["Package", PACKAGE_NAMES[lead.package] ? e(PACKAGE_NAMES[lead.package]) : "Not chosen"], ["Email", e(lead.email)], ["Phone", lead.phone ? e(lead.phone) : "Not given"]])}
     <div style="margin:22px 0 0;">${btn(`mailto:${lead.email}?subject=${encodeURIComponent(`Re: your MANSORA enquiry (${lead.ref})`)}`, "Reply by email")}</div>`;
   return {
     subject: `Reminder: follow up with ${lead.name} [${lead.ref}]`,

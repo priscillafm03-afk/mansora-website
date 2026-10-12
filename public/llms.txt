@@ -15,10 +15,18 @@
 - Business Advisory & Strategic Consulting: business planning, process and internal control reviews, risk and feasibility advisory, growth advisory
 - Corporate Training & Capacity Building: financial management, budgeting, reporting, tax awareness, internal controls
 
+## Packages
+- Gold (financial control + compliance): Accounting & Financial Reporting, Tax Advisory & Compliance
+- Silver (performance + growth): Financial Management & Performance, Business Advisory & Strategic Consulting, Training & Capacity Building
+- Platinum (the complete MANSORA solution): all five service pillars
+- MYOP (Make Your Own Package): choose only the services you need
+- Pricing is tailored to scope; the final quote follows a short scoping conversation.
+
 ## Pages
 - [Home](https://mansora-consulting.com/)
 - [About Us](https://mansora-consulting.com/about)
 - [Services](https://mansora-consulting.com/services)
+- [Packages](https://mansora-consulting.com/packages)
 - [Our Approach](https://mansora-consulting.com/our-approach)
 - [Why MANSORA](https://mansora-consulting.com/why-mansora)
 - [Who We Serve](https://mansora-consulting.com/who-we-serve)
