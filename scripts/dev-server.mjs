@@ -5,6 +5,7 @@ import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { gzipSync } from "node:zlib";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const config = JSON.parse(await readFile(join(root, "vercel.json"), "utf8"));
@@ -78,6 +79,13 @@ createServer(async (req, res) => {
   const file = (await tryFile(safe)) || (await tryFile(safe + ".html")) || (await tryFile(join(safe, "index.html")));
   if (!file) { res.writeHead(404, { "content-type": "text/plain" }); return res.end("Not found"); }
   const drop = (url.searchParams.get("drop") || "").split(",").filter(Boolean); // debug: ?drop=Content-Security-Policy
-  res.writeHead(200, { "content-type": TYPES[extname(file)] || "application/octet-stream", ...headersFor(path, drop) });
-  res.end(await readFile(file));
+  // gzip text files like Vercel does, so local Lighthouse runs are representative
+  let body = await readFile(file);
+  const type = TYPES[extname(file)] || "application/octet-stream";
+  const extra = {};
+  if (/text|javascript|json|xml|manifest/.test(type) && /gzip/.test(req.headers["accept-encoding"] || "")) {
+    body = gzipSync(body); extra["content-encoding"] = "gzip";
+  }
+  res.writeHead(200, { "content-type": type, ...extra, ...headersFor(path, drop) });
+  res.end(body);
 }).listen(PORT, () => console.log(`MANSORA preview on http://localhost:${PORT}`));

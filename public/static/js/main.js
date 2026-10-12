@@ -2375,14 +2375,15 @@ function translatePage(language) {
         );
 
 
-    /* GOOGLE TRANSLATE NOT READY */
-
-    if (!select) {
-
-        console.warn(
-            "MANSORA: Google Translate is still loading."
-        );
-
+    /* GOOGLE TRANSLATE NOT LOADED YET: load it, then try again */
+    if (!select || select.options.length < 2) {
+        if (window.mansoraLoadTranslate) {
+            window.mansoraLoadTranslate().then(function () {
+                translatePage(language);
+            }).catch(function (error) {
+                console.warn("MANSORA: Google Translate is unavailable.", error);
+            });
+        }
         return;
     }
 
