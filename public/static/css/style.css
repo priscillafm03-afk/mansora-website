@@ -9,52 +9,52 @@
    ========================================================= */
 
 :root {
-    --mansora-blue: #1769ff;
-    --mansora-blue-dark: #0d47c9;
+    --mansora-blue: #5c2d85;
+    --mansora-blue-dark: #38145c;
 
-    --mansora-purple: #7c3aed;
-    --mansora-purple-dark: #5b21b6;
+    --mansora-purple: #c48b17;
+    --mansora-purple-dark: #9a6a0b;
 
-    --mansora-dark: #0b1020;
-    --mansora-dark-blue: #101936;
+    --mansora-dark: #221634;
+    --mansora-dark-blue: #2a1844;
 
-    --mansora-text: #172033;
-    --mansora-muted: #667085;
+    --mansora-text: #221634;
+    --mansora-muted: #5e5269;
 
     --mansora-white: #ffffff;
-    --mansora-light: #f7f9ff;
-    --mansora-border: #e6eaf2;
+    --mansora-light: #fffaf1;
+    --mansora-border: #e1d7e8;
 
     --mansora-gradient:
         linear-gradient(
             135deg,
-            #1769ff 0%,
-            #5b4bea 50%,
-            #8b3dff 100%
+            #5c2d85 0%,
+            #4a2370 50%,
+            #c48b17 100%
         );
 
     --mansora-gradient-horizontal:
         linear-gradient(
             90deg,
-            #1769ff 0%,
-            #7c3aed 100%
+            #5c2d85 0%,
+            #c48b17 100%
         );
 
     --mansora-soft-gradient:
         linear-gradient(
             135deg,
-            rgba(23, 105, 255, 0.08),
-            rgba(124, 58, 237, 0.08)
+            rgba(92, 45, 133, 0.08),
+            rgba(196, 139, 23, 0.08)
         );
 
     --shadow-small:
-        0 8px 25px rgba(23, 105, 255, 0.08);
+        0 8px 25px rgba(92, 45, 133, 0.08);
 
     --shadow-medium:
-        0 15px 45px rgba(23, 105, 255, 0.12);
+        0 15px 45px rgba(92, 45, 133, 0.12);
 
     --shadow-large:
-        0 25px 70px rgba(11, 16, 32, 0.16);
+        0 25px 70px rgba(34, 22, 52, 0.16);
 }
 
 
@@ -156,7 +156,7 @@ a {
            linear-gradient(
                135deg,
                #6b6d71 0%,
-               #d3d2e3 50%,
+               #dcd2e3 50%,
                #d7d7d8 100%
            );
    
@@ -182,12 +182,12 @@ a {
        background:
            linear-gradient(
                90deg,
-               #d9dfea,
+               #e3d9ea,
                #bebebe
            );
    
        box-shadow:
-           0 5px 15px rgba(23, 105, 255, 0.20);
+           0 5px 15px rgba(92, 45, 133, 0.20);
    }
    
    /* Centered headings */
@@ -236,7 +236,7 @@ a {
            );
    
        box-shadow:
-           0 0 0 5px rgba(124, 58, 237, 0.08);
+           0 0 0 5px rgba(196, 139, 23, 0.08);
    }
 
 /* =========================================================
@@ -254,10 +254,10 @@ header {
     -webkit-backdrop-filter: blur(18px);
 
     border-bottom:
-        1px solid rgba(230, 234, 242, 0.8);
+        1px solid rgba(237, 230, 242, 0.8);
 
     box-shadow:
-        0 5px 25px rgba(11, 16, 32, 0.04);
+        0 5px 25px rgba(34, 22, 52, 0.04);
 
     transition:
         background 0.4s ease,
@@ -395,7 +395,7 @@ header.navbar-scrolled {
         rgba(255, 255, 255, 0.97);
 
     box-shadow:
-        0 8px 30px rgba(11, 16, 32, 0.10);
+        0 8px 30px rgba(34, 22, 52, 0.10);
 }
 
 header.navbar-scrolled .brand-logo {
@@ -503,17 +503,17 @@ section {
     background:
         linear-gradient(
             135deg,
-            #1769ff 0%,
-            #5b4bea 50%,
-            #7c3aed 100%
+            #5c2d85 0%,
+            #4a2370 50%,
+            #c48b17 100%
         );
 
     background-size: 200% 200%;
     background-position: 0% 50%;
 
     box-shadow:
-        0 10px 25px rgba(23, 105, 255, 0.25),
-        0 6px 18px rgba(124, 58, 237, 0.18);
+        0 10px 25px rgba(92, 45, 133, 0.25),
+        0 6px 18px rgba(196, 139, 23, 0.18);
 }
 
 /* Soft shine across the button */
@@ -548,8 +548,8 @@ section {
     background-position: 100% 50%;
 
     box-shadow:
-        0 16px 35px rgba(23, 105, 255, 0.30),
-        0 12px 28px rgba(124, 58, 237, 0.25);
+        0 16px 35px rgba(92, 45, 133, 0.30),
+        0 12px 28px rgba(196, 139, 23, 0.25);
 }
 
 .btn-primary:hover::before {
@@ -565,10 +565,10 @@ section {
 
     background: rgba(255, 255, 255, 0.95);
 
-    border: 1px solid rgba(124, 58, 237, 0.25);
+    border: 1px solid rgba(196, 139, 23, 0.25);
 
     box-shadow:
-        0 8px 22px rgba(23, 105, 255, 0.08);
+        0 8px 22px rgba(92, 45, 133, 0.08);
 }
 
 .btn-outline:hover {
@@ -578,7 +578,7 @@ section {
         linear-gradient(
             135deg,
             #505764,
-            #7c3aed
+            #c48b17
         );
 
     border-color: transparent;
@@ -586,7 +586,7 @@ section {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 32px rgba(23, 105, 255, 0.25),
+        0 15px 32px rgba(92, 45, 133, 0.25),
         0 10px 25px rgba(193, 188, 202, 0.2);
 }
 
@@ -636,7 +636,7 @@ section {
         linear-gradient(
             135deg,
             #ffffff,
-            #f1f4ff
+            #f9f4fc
         );
 
     color: var(--mansora-purple);
@@ -685,7 +685,7 @@ section {
     background:
         linear-gradient(
             135deg,
-            rgba(11, 16, 32, 0.82),
+            rgba(34, 22, 52, 0.82),
             rgba(53, 56, 62, 0.6),
             rgba(204, 195, 219, 0.68)
         );
@@ -750,9 +750,9 @@ section {
     background:
         linear-gradient(
             110deg,
-            rgba(7, 20, 55, 0.96) 0%,
-            rgba(23, 105, 255, 0.82) 45%,
-            rgba(124, 58, 237, 0.82) 100%
+            rgba(34, 12, 50, 0.96) 0%,
+            rgba(92, 45, 133, 0.82) 45%,
+            rgba(196, 139, 23, 0.82) 100%
         );
 
     z-index: 1;
@@ -879,7 +879,7 @@ section {
         linear-gradient(
             90deg,
             #ffffff 0%,
-            #dce8ff 45%,
+            #efe3f8 45%,
             #e4d4ff 100%
         );
 
@@ -1126,7 +1126,7 @@ section {
     background:
         radial-gradient(
             circle at 10% 20%,
-            rgba(23, 105, 255, 0.08),
+            rgba(92, 45, 133, 0.08),
             transparent 30%
         ),
         #ffffff;
@@ -1176,8 +1176,8 @@ section {
     background:
         linear-gradient(
             135deg,
-            rgba(23, 105, 255, 0.18),
-            rgba(124, 58, 237, 0.20)
+            rgba(92, 45, 133, 0.18),
+            rgba(196, 139, 23, 0.20)
         );
 
     filter:
@@ -1202,10 +1202,10 @@ section {
     overflow: hidden;
 
     background:
-        #e9edf4;
+        #efe9f4;
 
     box-shadow:
-        0 25px 70px rgba(11, 16, 32, 0.16);
+        0 25px 70px rgba(34, 22, 52, 0.16);
 
     transition:
         transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
@@ -1305,7 +1305,7 @@ section {
         translateY(-8px);
 
     box-shadow:
-        0 35px 90px rgba(11, 16, 32, 0.22);
+        0 35px 90px rgba(34, 22, 52, 0.22);
 }
 
 .intro-image-frame:hover img {
@@ -1569,7 +1569,7 @@ section {
     border-radius: 50%;
 
     background:
-        rgba(11, 16, 32, 0.10);
+        rgba(34, 22, 52, 0.10);
 }
 
 .cta-content {
@@ -1595,7 +1595,7 @@ section {
 
 .cta-content h2 span {
     color:
-        #dfe7ff;
+        #e1d7e8;
 }
 
 .cta-content p {
@@ -1618,12 +1618,12 @@ footer {
     background:
         radial-gradient(
             circle at 20% 20%,
-            rgba(23, 105, 255, 0.18),
+            rgba(92, 45, 133, 0.18),
             transparent 35%
         ),
         radial-gradient(
             circle at 80% 80%,
-            rgba(124, 58, 237, 0.20),
+            rgba(196, 139, 23, 0.20),
             transparent 35%
         ),
         var(--mansora-dark);
@@ -1654,7 +1654,7 @@ footer p {
     margin: 7px 0;
 
     color:
-        #c9d2e3;
+        #d8c9e3;
 }
 
 footer p:first-child {
@@ -1670,7 +1670,7 @@ footer p:first-child {
 
 footer p:nth-child(2) {
     color:
-        #dce3ef;
+        #e7dcef;
 
     font-size: 15px;
 }
@@ -1679,7 +1679,7 @@ footer p:last-child {
     margin-top: 20px;
 
     color:
-        #9daac0;
+        #b19dc0;
 
     font-size: 13px;
 
@@ -1959,9 +1959,9 @@ footer p:last-child {
     background:
         linear-gradient(
             110deg,
-            rgba(7, 18, 48, 0.94) 0%,
-            rgba(23, 105, 255, 0.78) 48%,
-            rgba(124, 58, 237, 0.78) 100%
+            rgba(30, 16, 46, 0.94) 0%,
+            rgba(92, 45, 133, 0.78) 48%,
+            rgba(196, 139, 23, 0.78) 100%
         );
 
     z-index: 1;
@@ -2055,7 +2055,7 @@ footer p:last-child {
         linear-gradient(
             90deg,
             #ffffff,
-            #dce8ff,
+            #efe3f8,
             #e4d4ff
         );
 
@@ -2127,7 +2127,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle at 10% 20%,
-            rgba(23, 105, 255, 0.07),
+            rgba(92, 45, 133, 0.07),
             transparent 30%
         ),
         #ffffff;
@@ -2182,13 +2182,13 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #1769ff,
-            #5b4bea,
-            #7c3aed
+            #5c2d85,
+            #4a2370,
+            #c48b17
         );
 
     box-shadow:
-        0 25px 65px rgba(23, 105, 255, 0.20);
+        0 25px 65px rgba(92, 45, 133, 0.20);
 
     animation: aboutCardFloat 5s ease-in-out infinite;
 }
@@ -2304,7 +2304,7 @@ footer p:last-child {
     transform: translateY(-10px);
 
     box-shadow:
-        0 20px 45px rgba(23, 105, 255, 0.12);
+        0 20px 45px rgba(92, 45, 133, 0.12);
 }
 
 .about-value-number {
@@ -2346,9 +2346,9 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #1769ff,
-            #5b4bea,
-            #7c3aed
+            #5c2d85,
+            #4a2370,
+            #c48b17
         );
 
     text-align: center;
@@ -2367,7 +2367,7 @@ footer p:last-child {
         ),
         radial-gradient(
             circle at 85% 80%,
-            rgba(11, 16, 32, 0.12),
+            rgba(34, 22, 52, 0.12),
             transparent 35%
         );
 }
@@ -2393,7 +2393,7 @@ footer p:last-child {
 }
 
 .about-cta-content h2 span {
-    color: #dfe7ff;
+    color: #e1d7e8;
 }
 
 .about-cta-content p {
@@ -2577,7 +2577,7 @@ footer p:last-child {
 
     border-radius: 50%;
 
-    background: rgba(23, 105, 255, 0.07);
+    background: rgba(92, 45, 133, 0.07);
 
     filter: blur(20px);
 
@@ -2600,7 +2600,7 @@ footer p:last-child {
 
     border-radius: 50%;
 
-    background: rgba(124, 58, 237, 0.08);
+    background: rgba(196, 139, 23, 0.08);
 
     filter: blur(20px);
 
@@ -2666,8 +2666,8 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            rgba(23, 105, 255, 0.05),
-            rgba(124, 58, 237, 0.07)
+            rgba(92, 45, 133, 0.05),
+            rgba(196, 139, 23, 0.07)
         );
 
     opacity: 0;
@@ -2958,7 +2958,7 @@ footer p:last-child {
 
 
 .footer-tagline {
-    color: #dce3ef !important;
+    color: #e7dcef !important;
 
     font-size: 15px;
 
@@ -2967,7 +2967,7 @@ footer p:last-child {
 
 
 .footer-values {
-    color: #aebbd0 !important;
+    color: #c2aed0 !important;
 
     font-size: 13px;
 
@@ -3047,7 +3047,7 @@ footer p:last-child {
     width: 0;
     height: 1px;
 
-    background: #8294ff;
+    background: #c79ae7;
 
     transition: width .3s ease;
 }
@@ -3198,9 +3198,9 @@ footer p:last-child {
     inset: 0;
     background: linear-gradient(
         115deg,
-        rgba(7,18,48,.95),
-        rgba(23,105,255,.78),
-        rgba(124,58,237,.84)
+        rgba(30, 16, 46,.95),
+        rgba(92, 45, 133,.78),
+        rgba(196, 139, 23,.84)
     );
 }
 
@@ -3236,7 +3236,7 @@ footer p:last-child {
 }
 
 .services-hero h1 span {
-    background: linear-gradient(90deg,#fff,#dbe7ff,#e5d7ff);
+    background: linear-gradient(90deg,#fff,#efe2f8,#eddff7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3289,7 +3289,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(23,105,255,.08),
+            rgba(92, 45, 133,.08),
             transparent 30%
         ),
         white;
@@ -3320,7 +3320,7 @@ footer p:last-child {
 
 .services-section {
     padding: 40px 0 120px;
-    background: #f7f9ff;
+    background: #fffaf1;
 }
 
 .services-grid {
@@ -3351,13 +3351,13 @@ footer p:last-child {
     background:
         linear-gradient(
             105deg,
-            rgba(5,12,35,.94),
-            rgba(15,45,100,.82),
+            rgba(28, 14, 42,.94),
+            rgba(63, 22, 93,.82),
             rgba(82,45,140,.72)
         ),
         var(--service-image) center/cover no-repeat;
 
-    box-shadow: 0 25px 70px rgba(11,16,32,.16);
+    box-shadow: 0 25px 70px rgba(34, 22, 52,.16);
 
     opacity: 0;
     transform: translateY(60px);
@@ -3407,8 +3407,8 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            rgba(5,12,35,.96),
-            rgba(8,25,65,.80),
+            rgba(28, 14, 42,.96),
+            rgba(40, 14, 59,.80),
             rgba(70,35,125,.55)
         );
     z-index: 0;
@@ -3435,7 +3435,7 @@ footer p:last-child {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 35px 85px rgba(11,16,32,.25);
+    box-shadow: 0 35px 85px rgba(34, 22, 52,.25);
 }
 
 .service-card:hover::after {
@@ -3462,8 +3462,8 @@ footer p:last-child {
 
     background: linear-gradient(
         135deg,
-        #1769ff,
-        #7c3aed
+        #5c2d85,
+        #c48b17
     );
 
     color: white;
@@ -3488,7 +3488,7 @@ footer p:last-child {
     display: inline-block;
     margin-bottom: 15px;
 
-    color: #cddcff;
+    color: #e9d6f6;
 
     font-size: 11px;
     font-weight: 800;
@@ -3604,7 +3604,7 @@ footer p:last-child {
 
     transform: translateY(-50%);
 
-    color: #dce7ff;
+    color: #efe3f8;
     font-weight: 800;
 }
 
@@ -3666,7 +3666,7 @@ footer p:last-child {
     height: 450px;
     right: -200px;
     bottom: -260px;
-    background: rgba(11,16,32,.1);
+    background: rgba(34, 22, 52,.1);
 }
 
 .services-promise-content {
@@ -3689,7 +3689,7 @@ footer p:last-child {
 
 .services-promise h2 span {
     display: block;
-    color: #dfe7ff;
+    color: #e1d7e8;
 }
 
 .services-promise p {
@@ -3894,7 +3894,7 @@ footer p:last-child {
 
     overflow: hidden;
 
-    background: #071b25;
+    background: #180824;
 
 }
 
@@ -3942,9 +3942,9 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            rgba(3, 15, 22, 0.88) 0%,
-            rgba(5, 23, 32, 0.72) 45%,
-            rgba(7, 27, 37, 0.58) 100%
+            rgba(24, 12, 36, 0.88) 0%,
+            rgba(28, 14, 42, 0.72) 45%,
+            rgba(24, 8, 36, 0.58) 100%
         );
 
     z-index: 1;
@@ -4338,9 +4338,9 @@ footer p:last-child {
         background:
             linear-gradient(
                 180deg,
-                rgba(3,15,22,0.84),
-                rgba(5,23,32,0.76),
-                rgba(3,15,22,0.88)
+                rgba(24, 12, 36,0.84),
+                rgba(28, 14, 42,0.76),
+                rgba(24, 12, 36,0.88)
             );
 
     }
@@ -4400,7 +4400,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(91,75,234,0.08),
+            rgba(74, 35, 112,0.08),
             transparent 70%
         );
 
@@ -4467,7 +4467,7 @@ footer p:last-child {
     background:
         linear-gradient(
             180deg,
-            #f7f9ff 0%,
+            #fffaf1 0%,
             #ffffff 100%
         );
 
@@ -4496,9 +4496,9 @@ footer p:last-child {
         linear-gradient(
             to bottom,
             transparent,
-            rgba(91,75,234,0.25),
+            rgba(74, 35, 112,0.25),
             rgba(212,173,98,0.55),
-            rgba(91,75,234,0.25),
+            rgba(74, 35, 112,0.25),
             transparent
         );
 
@@ -4524,12 +4524,12 @@ footer p:last-child {
     background:
         linear-gradient(
             to bottom,
-            #5b4bea,
+            #4a2370,
             #d4ad62
         );
 
     box-shadow:
-        0 0 18px rgba(91,75,234,0.35);
+        0 0 18px rgba(74, 35, 112,0.35);
 
     animation:
         processLineGrow
@@ -4593,7 +4593,7 @@ footer p:last-child {
 
     margin: auto;
 
-    color: #667085;
+    color: #5e5269;
 
     font-size: 17px;
 
@@ -4631,12 +4631,12 @@ footer p:last-child {
         rgba(255,255,255,0.92);
 
     border:
-        1px solid rgba(231,234,242,0.9);
+        1px solid rgba(237, 231, 242,0.9);
 
     border-radius: 30px;
 
     box-shadow:
-        0 15px 50px rgba(11,16,32,0.055);
+        0 15px 50px rgba(34, 22, 52,0.055);
 
     backdrop-filter:
         blur(10px);
@@ -4698,10 +4698,10 @@ footer p:last-child {
         scale(1.01);
 
     border-color:
-        rgba(91,75,234,0.18);
+        rgba(74, 35, 112,0.18);
 
     box-shadow:
-        0 30px 80px rgba(23,105,255,0.12);
+        0 30px 80px rgba(92, 45, 133,0.12);
 
 }
 
@@ -4730,15 +4730,15 @@ footer p:last-child {
         linear-gradient(
             145deg,
             #ffffff,
-            #f1f3fa
+            #f6f1fa
         );
 
     border:
-        1px solid rgba(91,75,234,0.12);
+        1px solid rgba(74, 35, 112,0.12);
 
     box-shadow:
         inset 0 0 0 10px rgba(255,255,255,0.8),
-        0 18px 45px rgba(91,75,234,0.12);
+        0 18px 45px rgba(74, 35, 112,0.12);
 
 }
 
@@ -4845,7 +4845,7 @@ footer p:last-child {
     margin:
         0 0 15px;
 
-    color: #101828;
+    color: #1e1028;
 
     font-size:
         clamp(36px, 4vw, 54px);
@@ -4863,7 +4863,7 @@ footer p:last-child {
 
     margin: 0;
 
-    color: #667085;
+    color: #5e5269;
 
     font-size: 16px;
 
@@ -5189,7 +5189,7 @@ footer p:last-child {
 
     display: block;
 
-    color: #dfe7ff;
+    color: #e1d7e8;
 
 }
 
@@ -5327,20 +5327,20 @@ footer p:last-child {
     background:
         radial-gradient(
             circle at 12% 18%,
-            rgba(75, 100, 210, 0.18),
+            rgba(154, 75, 210, 0.18),
             transparent 32%
         ),
         radial-gradient(
             circle at 88% 42%,
-            rgba(120, 85, 210, 0.15),
+            rgba(158, 85, 210, 0.15),
             transparent 34%
         ),
         linear-gradient(
             135deg,
-            #111827 0%,
-            #0d1627 42%,
-            #0a1020 72%,
-            #080c16 100%
+            #221634 0%,
+            #1c0d27 42%,
+            #170a20 72%,
+            #100816 100%
         );
     color: #ffffff;
     overflow: hidden;
@@ -5400,30 +5400,30 @@ footer p:last-child {
         /* Purple atmospheric glow */
         radial-gradient(
             circle at 78% 18%,
-            rgba(130, 105, 255, 0.25),
+            rgba(188, 134, 226, 0.25),
             transparent 36%
         ),
 
         /* Blue atmospheric glow */
         radial-gradient(
             circle at 20% 58%,
-            rgba(65, 130, 255, 0.20),
+            rgba(170, 101, 219, 0.20),
             transparent 42%
         ),
 
         /* Soft center gradient */
         linear-gradient(
             110deg,
-            rgba(9, 15, 30, 0.52) 0%,
-            rgba(12, 20, 40, 0.30) 45%,
-            rgba(12, 16, 30, 0.10) 100%
+            rgba(21, 9, 30, 0.52) 0%,
+            rgba(28, 12, 40, 0.30) 45%,
+            rgba(22, 12, 30, 0.10) 100%
         ),
 
         /* Bottom fade */
         linear-gradient(
             0deg,
-            rgba(7, 10, 18, 0.78) 0%,
-            rgba(7, 10, 18, 0.22) 38%,
+            rgba(24, 12, 36, 0.78) 0%,
+            rgba(24, 12, 36, 0.22) 38%,
             transparent 76%
         );
 
@@ -5484,9 +5484,9 @@ footer p:last-child {
         linear-gradient(
             110deg,
             #ffffff,
-            #dce5ff,
+            #efe3f8,
             #ffffff,
-            #d6ceff,
+            #e9d7f6,
             #ffffff
         );
 
@@ -5660,7 +5660,7 @@ footer p:last-child {
         linear-gradient(
             180deg,
             #ffffff,
-            #aebcff,
+            #dbbdf0,
             #c9a9ff
         );
 
@@ -5684,7 +5684,7 @@ footer p:last-child {
 
     box-shadow:
         0 0 12px rgba(255,255,255,.8),
-        0 0 35px rgba(130,150,255,.5);
+        0 0 35px rgba(176, 140, 210,.5);
 }
 
 .why-principle {
@@ -5828,8 +5828,8 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(105,125,255,.16),
-            rgba(150,90,255,.08),
+            rgba(188, 134, 226,.16),
+            rgba(181, 121, 224,.08),
             transparent 70%
         );
 
@@ -5910,7 +5910,7 @@ footer p:last-child {
 .why-final-button:hover {
     background: #ffffff;
 
-    color: #07090d;
+    color: #0a070d;
 
     border-color: #ffffff;
 
@@ -6167,12 +6167,12 @@ footer p:last-child {
     background:
         linear-gradient(
             180deg,
-            #f8fafc 0%,
+            #faf8fc 0%,
             #ffffff 45%,
-            #f3f7fb 100%
+            #f8f3fb 100%
         );
 
-    color: #102238;
+    color: #2a1844;
 }
 
 
@@ -6190,7 +6190,7 @@ footer p:last-child {
 
     overflow: hidden;
 
-    background: #dfe9f2;
+    background: #eadff2;
 }
 
 .who-hero-image {
@@ -6225,14 +6225,14 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            rgba(8,25,43,.72),
-            rgba(8,25,43,.38),
-            rgba(8,25,43,.08)
+            rgba(34, 20, 52,.72),
+            rgba(34, 20, 52,.38),
+            rgba(34, 20, 52,.08)
         ),
 
         linear-gradient(
             0deg,
-            rgba(8,25,43,.42),
+            rgba(34, 20, 52,.42),
             transparent 65%
         );
 }
@@ -6298,7 +6298,7 @@ footer p:last-child {
         linear-gradient(
             110deg,
             #ffffff,
-            #e9f1f8,
+            #f2e9f8,
             #dfc77a,
             #ffffff
         );
@@ -6412,12 +6412,12 @@ footer p:last-child {
         linear-gradient(
             135deg,
             #ffffff,
-            #f3f7fb
+            #f8f3fb
         );
 
     border-bottom:
         1px solid
-        rgba(16,34,56,.08);
+        rgba(42, 24, 68,.08);
 }
 
 .who-intro-label,
@@ -6446,7 +6446,7 @@ footer p:last-child {
 
     letter-spacing: -.065em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-intro h2 span {
@@ -6486,7 +6486,7 @@ footer p:last-child {
         150px;
 
     background:
-        #f7fafd;
+        #fbf7fd;
 }
 
 .who-client-line {
@@ -6501,7 +6501,7 @@ footer p:last-child {
     width: 2px;
 
     background:
-        #dbe4ec;
+        #e5dbec;
 
     overflow: hidden;
 }
@@ -6515,7 +6515,7 @@ footer p:last-child {
         linear-gradient(
             180deg,
             #c4a95e,
-            #7597b7
+            #9b75b7
         );
 
     transition:
@@ -6622,7 +6622,7 @@ footer p:last-child {
 
     letter-spacing: -.06em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-client-content h2 strong {
@@ -6729,14 +6729,14 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            rgba(7,25,43,.78),
-            rgba(7,25,43,.42),
-            rgba(7,25,43,.10)
+            rgba(34, 20, 52,.78),
+            rgba(34, 20, 52,.42),
+            rgba(34, 20, 52,.10)
         ),
 
         linear-gradient(
             0deg,
-            rgba(7,25,43,.52),
+            rgba(34, 20, 52,.52),
             transparent 65%
         );
 }
@@ -6840,7 +6840,7 @@ footer p:last-child {
 
     letter-spacing: -.06em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-values-heading h2 strong {
@@ -6859,7 +6859,7 @@ footer p:last-child {
     gap: 1px;
 
     background:
-        #dce4eb;
+        #e5dceb;
 }
 
 .who-value {
@@ -6872,8 +6872,8 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #f8fafc,
-            #eef4f8
+            #faf8fc,
+            #f4eef8
         );
 
     transition:
@@ -6891,7 +6891,7 @@ footer p:last-child {
 
     box-shadow:
         0 20px 45px
-        rgba(16,34,56,.10);
+        rgba(42, 24, 68,.10);
 }
 
 .who-value span {
@@ -6919,7 +6919,7 @@ footer p:last-child {
 
     letter-spacing: -.05em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-value h3 strong {
@@ -6961,13 +6961,13 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #f4f8fb,
+            #f8f4fb,
             #ffffff
         );
 
     border-top:
         1px solid
-        #e2e8ee;
+        #e9e2ee;
 }
 
 .who-promise-number {
@@ -7004,7 +7004,7 @@ footer p:last-child {
 
     letter-spacing: -.065em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-promise-content h2 strong {
@@ -7025,7 +7025,7 @@ footer p:last-child {
 }
 
 .who-promise-content p strong {
-    color: #102238;
+    color: #2a1844;
 }
 
 
@@ -7061,8 +7061,8 @@ footer p:last-child {
 
         linear-gradient(
             135deg,
-            #edf3f7,
-            #dfe9f1
+            #f3edf7,
+            #eadff1
         );
 }
 
@@ -7119,7 +7119,7 @@ footer p:last-child {
 
     letter-spacing: -.07em;
 
-    color: #102238;
+    color: #2a1844;
 }
 
 .who-final h2 span {
@@ -7153,7 +7153,7 @@ footer p:last-child {
 }
 
 .who-manifesto div:hover {
-    color: #102238;
+    color: #2a1844;
 
     transform:
         translateX(8px);
@@ -7189,7 +7189,7 @@ footer p:last-child {
         1px solid
         #b79a4c;
 
-    color: #102238;
+    color: #2a1844;
 
     text-decoration: none;
 
@@ -7239,7 +7239,7 @@ footer p:last-child {
         65px;
 
     background:
-        #102238;
+        #2a1844;
 
     border-top:
         1px solid
@@ -7720,8 +7720,8 @@ footer p:last-child {
 .contact-page {
     position: relative;
     overflow: hidden;
-    background: #f7f9fc;
-    color: #111827;
+    background: #faf7fc;
+    color: #221634;
 }
 
 /* =========================================================
@@ -7738,19 +7738,19 @@ footer p:last-child {
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(76, 0, 255, .25),
+            rgba(141, 48, 207, .25),
             transparent 30%
         ),
         radial-gradient(
             circle at 85% 70%,
-            rgba(0, 119, 255, .20),
+            rgba(141, 48, 207, .20),
             transparent 30%
         ),
         linear-gradient(
             135deg,
-            #050816 0%,
-            #0a1030 50%,
-            #111b4d 100%
+            #0f0516 0%,
+            #200b2f 50%,
+            #34124c 100%
         );
     color: white;
 }
@@ -7820,7 +7820,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(91,58,255,.35),
+            rgba(167, 95, 218,.35),
             transparent 70%
         );
     animation: orbFloat1 8s ease-in-out infinite;
@@ -7834,7 +7834,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(0,153,255,.28),
+            rgba(141, 48, 207,.28),
             transparent 70%
         );
     animation: orbFloat2 10s ease-in-out infinite;
@@ -7914,16 +7914,16 @@ footer p:last-child {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #5d7cff;
+    background: #b67ce0;
     box-shadow:
-        0 0 0 0 rgba(93,124,255,.7);
+        0 0 0 0 rgba(182, 124, 224,.7);
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
     70% {
         box-shadow:
-            0 0 0 12px rgba(228, 232, 255, 0);
+            0 0 0 12px rgba(243, 233, 250, 0);
     }
 }
 .contact-hero h1 {
@@ -7936,7 +7936,7 @@ footer p:last-child {
 
     text-shadow:
         0 0 15px rgba(255,255,255,.15),
-        0 0 35px rgba(100,140,255,.12);
+        0 0 35px rgba(186, 129, 226,.12);
 
     animation:
         heroTitle 1.1s cubic-bezier(.16,1,.3,1) forwards;
@@ -7949,9 +7949,9 @@ footer p:last-child {
         linear-gradient(
             90deg,
             #ffffff 0%,
-            #dce7ff 25%,
+            #efe3f8 25%,
             #ffffff 50%,
-            #d9ccff 75%,
+            #e8d6f5 75%,
             #ffffff 100%
         );
 
@@ -7986,7 +7986,7 @@ footer p:last-child {
     padding: 17px 28px;
     border-radius: 100px;
     background: white;
-    color: #11152b;
+    color: #20112b;
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
@@ -8007,7 +8007,7 @@ footer p:last-child {
     transform: translateY(-5px) scale(1.03);
     box-shadow:
         0 15px 40px rgba(0,0,0,.3),
-        0 0 30px rgba(100,120,255,.25);
+        0 0 30px rgba(186, 129, 226,.25);
 }
 
 .contact-scroll-btn:hover span {
@@ -8038,7 +8038,7 @@ footer p:last-child {
 
 .hero-floating-card span {
     display: block;
-    color: #7d9cff;
+    color: #c596e6;
     margin-bottom: 5px;
 }
 
@@ -8155,14 +8155,14 @@ footer p:last-child {
 .contact-section-tag {
     font-size: 11px;
     letter-spacing: 2px;
-    color: #667085;
+    color: #5e5269;
 }
 
 .contact-section-tag span {
     display: block;
     font-size: 45px;
     font-weight: 800;
-    color: #d8def0;
+    color: #e6d8f0;
     margin-bottom: 10px;
 }
 
@@ -8173,7 +8173,7 @@ footer p:last-child {
 .intro-mini-label {
     font-size: 10px;
     letter-spacing: 2px;
-    color: #6573ff;
+    color: #ba82e2;
     margin-bottom: 20px;
 }
 
@@ -8189,7 +8189,7 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            #526dff,
+            #b173de,
             #9d5cff
         );
     -webkit-background-clip: text;
@@ -8199,7 +8199,7 @@ footer p:last-child {
 
 .contact-intro p {
     max-width: 650px;
-    color: #667085;
+    color: #5e5269;
     font-size: 18px;
     line-height: 1.8;
 }
@@ -8213,8 +8213,8 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #f8f9ff,
-            #eef2ff
+            #fcf9fe,
+            #f7f1fc
         );
 }
 
@@ -8252,7 +8252,7 @@ footer p:last-child {
 .form-heading > span {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .form-heading h2 {
@@ -8267,7 +8267,7 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            #536dff,
+            #6b3a96,
             #9c56ff
         );
     -webkit-background-clip: text;
@@ -8276,7 +8276,7 @@ footer p:last-child {
 }
 
 .form-heading p {
-    color: #667085;
+    color: #5e5269;
     max-width: 600px;
     line-height: 1.7;
 }
@@ -8309,7 +8309,7 @@ footer p:last-child {
     font-size: 10px;
     letter-spacing: 2px;
     font-weight: 700;
-    color: #667085;
+    color: #5e5269;
 }
 
 .form-field label small {
@@ -8321,13 +8321,13 @@ footer p:last-child {
 .form-field textarea {
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #dfe4ef;
+    border: 1px solid #e8dfef;
     background: rgba(255,255,255,.85);
     padding: 18px;
     border-radius: 12px;
     outline: none;
     font: inherit;
-    color: #111827;
+    color: #221634;
     transition: .35s ease;
 }
 
@@ -8339,12 +8339,12 @@ footer p:last-child {
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
-    border-color: #6474ff;
+    border-color: #7a4aa8;
     background: white;
     transform: translateY(-2px);
     box-shadow:
-        0 10px 35px rgba(76,90,255,.12),
-        0 0 0 4px rgba(100,116,255,.08);
+        0 10px 35px rgba(175, 110, 221,.12),
+        0 0 0 4px rgba(122, 74, 168,.08);
 }
 
 /* =========================================================
@@ -8377,7 +8377,7 @@ footer p:last-child {
     padding: 18px 25px;
     border: 0;
     border-radius: 100px;
-    background: #111a3b;
+    background: #29113b;
     color: white;
     cursor: pointer;
     font-weight: 700;
@@ -8389,7 +8389,7 @@ footer p:last-child {
 .mansora-submit:hover {
     transform: translateY(-4px);
     box-shadow:
-        0 15px 35px rgba(17,26,59,.25);
+        0 15px 35px rgba(41, 17, 59,.25);
 }
 
 .mansora-submit::after {
@@ -8544,7 +8544,7 @@ footer p:last-child {
     font-size: 10px;
     letter-spacing: 3px;
 
-    color: #6474ff;
+    color: #7a4aa8;
 
     margin-bottom: 18px;
 }
@@ -8557,11 +8557,11 @@ footer p:last-child {
 
     margin: 0;
 
-    color: #111827;
+    color: #221634;
 }
 
 .contact-info-heading h2 strong {
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 
@@ -8609,7 +8609,7 @@ footer p:last-child {
     background-position: center;
 
     box-shadow:
-        0 15px 40px rgba(20, 30, 80, 0.15);
+        0 15px 40px rgba(55, 20, 80, 0.15);
 
     transition:
         transform 0.45s ease,
@@ -8652,8 +8652,8 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            rgba(10, 15, 40, 0.78),
-            rgba(45, 35, 100, 0.62)
+            rgba(27, 10, 40, 0.78),
+            rgba(56, 20, 92, 0.62)
         );
 
     z-index: 1;
@@ -8681,7 +8681,7 @@ footer p:last-child {
     border-radius: 50%;
 
     background:
-        rgba(120, 135, 255, 0.18);
+        rgba(194, 146, 229, 0.18);
 
     filter: blur(3px);
 
@@ -8702,18 +8702,18 @@ footer p:last-child {
         scale(1.02);
 
     border-color:
-        rgba(100, 116, 255, 0.70);
+        rgba(122, 74, 168, 0.70);
 
     box-shadow:
-        0 30px 65px rgba(20, 25, 80, 0.30);
+        0 30px 65px rgba(55, 20, 80, 0.30);
 }
 
 .contact-info-card:hover::before {
     background:
         linear-gradient(
             135deg,
-            rgba(10, 15, 40, 0.65),
-            rgba(45, 35, 100, 0.50)
+            rgba(27, 10, 40, 0.65),
+            rgba(56, 20, 92, 0.50)
         );
 }
 
@@ -8772,7 +8772,7 @@ footer p:last-child {
     overflow: hidden;
 
     box-shadow:
-        0 8px 25px rgba(20, 25, 70, 0.20);
+        0 8px 25px rgba(49, 20, 70, 0.20);
 
     transition:
         transform 0.4s ease,
@@ -8810,10 +8810,10 @@ footer p:last-child {
     transform: translateY(-5px) scale(1.06);
 
     border-color:
-        rgba(150, 160, 255, 0.65);
+        rgba(208, 170, 235, 0.65);
 
     box-shadow:
-        0 12px 30px rgba(100, 116, 255, 0.30);
+        0 12px 30px rgba(122, 74, 168, 0.30);
 }
 
 .contact-info-card:hover .info-icon img {
@@ -8833,7 +8833,7 @@ footer p:last-child {
 
     letter-spacing: 2px;
 
-    color: #b8c0ff;
+    color: #dfc5f2;
 }
 
 .contact-info-card h3 {
@@ -8958,7 +8958,7 @@ footer p:last-child {
 }
 .social-section {
     padding: 100px 30px;
-    background: #07102b;
+    background: #1c0a29;
     color: white;
 }
 
@@ -8974,7 +8974,7 @@ footer p:last-child {
 .social-inner > div:first-child > span {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #8294ff;
+    color: #c79ae7;
 }
 
 .social-inner h2 {
@@ -8985,7 +8985,7 @@ footer p:last-child {
 
 .social-inner h2 strong {
     display: block;
-    color: #8799ff;
+    color: #c99ee8;
 }
 
 .social-links {
@@ -9011,7 +9011,7 @@ footer p:last-child {
     transform: translateY(-6px);
     background: rgba(255,255,255,.09);
     border-color:
-        rgba(130,148,255,.4);
+        rgba(176, 140, 210,.4);
 }
 
 .social-logo {
@@ -9042,7 +9042,7 @@ footer p:last-child {
 }
 
 .social-card b {
-    color: #8294ff;
+    color: #c79ae7;
     transition: .3s ease;
 }
 
@@ -9056,7 +9056,7 @@ footer p:last-child {
 
 .mansora-map-section {
     padding: 100px 30px;
-    background: #f7f9fc;
+    background: #faf7fc;
 }
 
 .map-container {
@@ -9071,7 +9071,7 @@ footer p:last-child {
 .map-heading span {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .map-heading h2 {
@@ -9081,7 +9081,7 @@ footer p:last-child {
 }
 
 .map-heading h2 strong {
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .map-frame {
@@ -9089,9 +9089,9 @@ footer p:last-child {
     height: 450px;
     border-radius: 25px;
     overflow: hidden;
-    border: 1px solid #e1e5ef;
+    border: 1px solid #e9e1ef;
     box-shadow:
-        0 30px 80px rgba(20,35,80,.12);
+        0 30px 80px rgba(55, 20, 80,.12);
 }
 
 .map-frame iframe {
@@ -9121,7 +9121,7 @@ footer p:last-child {
 .map-overlay-card span {
     font-size: 9px;
     letter-spacing: 2px;
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .map-overlay-card strong {
@@ -9140,8 +9140,8 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            #111a3d,
-            #293c88
+            #2b113d,
+            #602988
         );
     color: white;
     text-align: center;
@@ -9158,7 +9158,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(110,130,255,.3),
+            rgba(190, 138, 227,.3),
             transparent 70%
         );
     animation: glowPulse 5s infinite;
@@ -9186,7 +9186,7 @@ footer p:last-child {
 .booking-content > span {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #aab7ff;
+    color: #d9baef;
 }
 
 .booking-content h2 {
@@ -9198,7 +9198,7 @@ footer p:last-child {
 
 .booking-content h2 strong {
     display: block;
-    color: #aab7ff;
+    color: #d9baef;
 }
 
 .booking-content p {
@@ -9215,7 +9215,7 @@ footer p:last-child {
     padding: 18px 25px;
     border-radius: 100px;
     background: white;
-    color: #111a3d;
+    color: #2b113d;
     text-decoration: none;
     font-size: 12px;
     font-weight: 800;
@@ -9238,7 +9238,7 @@ footer p:last-child {
 
 .newsletter-section {
     padding: 100px 30px;
-    background: #f7f9fc;
+    background: #faf7fc;
 }
 
 .newsletter-inner {
@@ -9253,7 +9253,7 @@ footer p:last-child {
 .newsletter-copy > span {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .newsletter-copy h2 {
@@ -9264,11 +9264,11 @@ footer p:last-child {
 }
 
 .newsletter-copy h2 strong {
-    color: #6474ff;
+    color: #7a4aa8;
 }
 
 .newsletter-copy p {
-    color: #667085;
+    color: #5e5269;
     line-height: 1.7;
 }
 
@@ -9277,9 +9277,9 @@ footer p:last-child {
     background: white;
     padding: 7px;
     border-radius: 100px;
-    border: 1px solid #e0e5ef;
+    border: 1px solid #e9e0ef;
     box-shadow:
-        0 15px 40px rgba(20,40,80,.08);
+        0 15px 40px rgba(55, 20, 80,.08);
     transition:
         box-shadow .3s ease,
         transform .3s ease;
@@ -9304,7 +9304,7 @@ footer p:last-child {
 .newsletter-input button {
     border: 0;
     border-radius: 100px;
-    background: #111a3d;
+    background: #2b113d;
     color: white;
     padding: 14px 20px;
     cursor: pointer;
@@ -9712,7 +9712,7 @@ footer p:last-child {
     overflow: hidden;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,.12);
-    background: #101936;
+    background: #2a1844;
     color: white;
     text-decoration: none;
     isolation: isolate;
@@ -9742,9 +9742,9 @@ footer p:last-child {
     background:
         linear-gradient(
             135deg,
-            rgba(5,10,30,.92),
-            rgba(5,10,30,.58),
-            rgba(5,10,30,.82)
+            rgba(26, 14, 40,.92),
+            rgba(26, 14, 40,.58),
+            rgba(26, 14, 40,.82)
         );
 
     transition:
@@ -9865,20 +9865,20 @@ footer p:last-child {
 .social-card:hover {
     transform: translateY(-8px) scale(1.015);
 
-    border-color: rgba(150,170,255,.45);
+    border-color: rgba(208, 170, 235,.45);
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.28),
-        0 0 35px rgba(100,120,255,.12);
+        0 0 35px rgba(186, 129, 226,.12);
 }
 
 .social-card:hover .social-overlay {
     background:
         linear-gradient(
             135deg,
-            rgba(5,10,30,.78),
-            rgba(5,10,30,.30),
-            rgba(5,10,30,.65)
+            rgba(26, 14, 40,.78),
+            rgba(26, 14, 40,.30),
+            rgba(26, 14, 40,.65)
         );
 }
 
@@ -10080,7 +10080,7 @@ footer p:last-child {
 
     border-radius: 18px;
 
-    background: rgba(17, 26, 61, 0.72);
+    background: rgba(42, 24, 68, 0.72);
 
     border: 1px solid rgba(255, 255, 255, 0.12);
 
@@ -10307,7 +10307,7 @@ footer p:last-child {
 
     border-radius: 100px;
 
-    border: 1px solid rgba(100,130,255,.3);
+    border: 1px solid rgba(186, 129, 226,.3);
 
     animation:
         connectPulse 2.5s ease-out infinite;
@@ -10387,7 +10387,7 @@ footer p:last-child {
     border: 1px solid rgba(255,255,255,.20) !important;
     border-radius: 50% !important;
 
-    background: rgba(17,26,61,.35) !important;
+    background: rgba(42, 24, 68,.35) !important;
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -10406,8 +10406,8 @@ footer p:last-child {
 
 .global-settings-btn:hover {
     transform: rotate(45deg) scale(1.08);
-    border-color: rgba(130,148,255,.6);
-    background: rgba(30,40,80,.55);
+    border-color: rgba(176, 140, 210,.6);
+    background: rgba(59, 30, 80,.55);
 }
 
 
@@ -10441,10 +10441,10 @@ footer p:last-child {
 
     margin-left: 10px;
 
-    border: 1px solid rgba(83,109,255,.25);
+    border: 1px solid rgba(107, 58, 150,.25);
     border-radius: 9px;
 
-    background: rgba(83,109,255,.07);
+    background: rgba(107, 58, 150,.07);
 
     text-decoration: none;
 
@@ -10457,15 +10457,15 @@ footer p:last-child {
 
     border-radius: 10px;
 
-    background: #536dff;
+    background: #6b3a96;
 
     transition: .3s ease;
 }
 
 .nav-settings:hover {
-    background: #536dff;
+    background: #6b3a96;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(83,109,255,.25);
+    box-shadow: 0 8px 20px rgba(107, 58, 150,.25);
 }
 
 .nav-settings:hover span {
@@ -10478,7 +10478,7 @@ footer p:last-child {
 .settings-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(8, 12, 35, 0.35);
+    background: rgba(24, 8, 35, 0.35);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
@@ -10520,8 +10520,8 @@ footer p:last-child {
     background:
         linear-gradient(
             145deg,
-            rgba(42, 55, 125, 0.94),
-            rgba(31, 25, 82, 0.94)
+            rgba(90, 42, 125, 0.94),
+            rgba(58, 25, 82, 0.94)
         );
 
     border: 1px solid rgba(255,255,255,.22);
@@ -10533,7 +10533,7 @@ footer p:last-child {
 
     box-shadow:
         -20px 25px 80px rgba(0,0,0,.35),
-        0 0 50px rgba(90,110,255,.12);
+        0 0 50px rgba(181, 121, 224,.12);
 
     transform:
         translateX(110%)
@@ -10582,7 +10582,7 @@ footer p:last-child {
     background:
         radial-gradient(
             circle,
-            rgba(130,150,255,.35),
+            rgba(176, 140, 210,.35),
             transparent 70%
         );
 
@@ -10670,7 +10670,7 @@ footer p:last-child {
 
     letter-spacing: 4px;
 
-    color: #aebcff;
+    color: #dbbdf0;
 }
 
 .settings-panel h2 {
@@ -10687,7 +10687,7 @@ footer p:last-child {
         linear-gradient(
             90deg,
             #ffffff,
-            #b9c6ff
+            #e0c6f2
         );
 
     -webkit-background-clip: text;
@@ -10750,7 +10750,7 @@ footer p:last-child {
         rgba(255,255,255,.13);
 
     border-color:
-        rgba(160,175,255,.45);
+        rgba(212, 178, 237,.45);
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.15);
@@ -10777,7 +10777,7 @@ footer p:last-child {
 }
 
 .setting-item > span {
-    color: #aebcff;
+    color: #dbbdf0;
 
     font-size: 27px;
 
@@ -10856,14 +10856,14 @@ footer p:last-child {
     height: 38px;
     padding: 0 12px;
 
-    border: 1px solid rgba(83, 109, 255, 0.35);
+    border: 1px solid rgba(107, 58, 150, 0.35);
     border-radius: 12px;
 
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    color: #536dff;
+    color: #6b3a96;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -10882,13 +10882,13 @@ footer p:last-child {
 }
 
 .language-toggle:hover {
-    background: rgba(83, 109, 255, 0.10);
-    border-color: rgba(83, 109, 255, 0.65);
+    background: rgba(107, 58, 150, 0.10);
+    border-color: rgba(107, 58, 150, 0.65);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 10px 28px rgba(83, 109, 255, 0.18);
+        0 10px 28px rgba(107, 58, 150, 0.18);
 }
 
 /* ARROW */
@@ -10927,13 +10927,13 @@ footer p:last-child {
         linear-gradient(
             145deg,
             rgba(255,255,255,.98),
-            rgba(245,247,255,.98)
+            rgba(251, 247, 253,.98)
         );
 
-    border: 1px solid rgba(83,109,255,.18);
+    border: 1px solid rgba(107, 58, 150,.18);
 
     box-shadow:
-        0 18px 50px rgba(25,35,90,.18),
+        0 18px 50px rgba(63, 25, 90,.18),
         0 4px 15px rgba(0,0,0,.08);
 
     backdrop-filter: blur(20px);
@@ -10986,7 +10986,7 @@ footer p:last-child {
 
     border-radius: 10px;
 
-    color: #18224f;
+    color: #38184f;
 
     text-decoration: none;
 
@@ -11058,11 +11058,11 @@ footer p:last-child {
     background:
         linear-gradient(
             90deg,
-            rgba(83,109,255,.11),
-            rgba(83,109,255,.04)
+            rgba(107, 58, 150,.11),
+            rgba(107, 58, 150,.04)
         );
 
-    color: #536dff;
+    color: #6b3a96;
 
     transform: translateX(5px);
 }
@@ -11080,7 +11080,7 @@ footer p:last-child {
 
     border-radius: 5px;
 
-    background: #536dff;
+    background: #6b3a96;
 
     transition:
         height .25s ease;
@@ -12001,7 +12001,7 @@ body > .skiptranslate {
         border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 
         box-shadow:
-            0 8px 35px rgba(11, 16, 32, 0.10);
+            0 8px 35px rgba(34, 22, 52, 0.10);
     }
 
 
@@ -12072,7 +12072,7 @@ body > .skiptranslate {
             border-bottom: 1px solid rgba(255, 255, 255, 0.55);
     
             box-shadow:
-                0 8px 35px rgba(11, 16, 32, 0.10);
+                0 8px 35px rgba(34, 22, 52, 0.10);
         }
     
     

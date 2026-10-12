@@ -9,6 +9,8 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const root = fileURLToPath(new URL("..", import.meta.url));
 const config = JSON.parse(await readFile(join(root, "vercel.json"), "utf8"));
 const PORT = Number(process.env.PORT || 3000);
+// Without a Resend key locally, log emails instead of sending them.
+if (!process.env.RESEND_API_KEY) process.env.MAIL_MOCK ??= "1";
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript",
   ".png": "image/png", ".webp": "image/webp", ".ico": "image/x-icon", ".xml": "application/xml",

@@ -21,12 +21,29 @@ Open http://localhost:3000. No install step and no dependencies.
 
 1. In Vercel, choose **Add New → Project** and import this GitHub repo. Leave Framework Preset on **Other**; `vercel.json` sets everything else.
 2. Under **Settings → Environment Variables**, add:
-   - `RESEND_API_KEY`: from https://resend.com (the free tier is enough)
-   - `CONTACT_TO_EMAIL`: inbox that receives enquiries, e.g. `Mansora@ghana.com`
-   - `CONTACT_FROM_EMAIL`: e.g. `MANSORA Website <website@mansora-consulting.com>` (verify the domain in Resend first)
+   - `RESEND_API_KEY`: from https://resend.com
+   - `CONTACT_FROM_EMAIL`: a sender on a domain verified in Resend, e.g. `MANSORA Consulting <hello@mansora-consulting.com>`
+   - `CONTACT_TO_EMAIL` (optional): team inbox, default `ataakonadu50@gmail.com`. Separate several addresses with commas.
+   - `TEAM_REMINDER_HOURS` (optional, default `24`) and `FOLLOW_UP_DAYS` (optional, default `2`). Set either to `0` to turn that email off.
+   - `RESEND_AUDIENCE_ID` (optional): Resend audience that newsletter sign-ups are added to.
 3. Redeploy.
 
-Until the email variables are set, the contact form still works: it opens the visitor's email app with the enquiry already filled in.
+## Enquiry workflow (Resend)
+
+When someone sends the Contact Us form (`api/contact.js`):
+
+| When | Who gets it | What |
+|------|-------------|------|
+| Instantly | Team (`CONTACT_TO_EMAIL`) | New-enquiry alert with a reference number (e.g. `MCB-261012-K7Q4`), the details, and one-tap Reply, Call and WhatsApp buttons. Replying goes straight to the enquirer. |
+| Instantly | Enquirer | Branded confirmation with their reference, the service they asked about, what happens next and the phone numbers. Replies go to the team. |
+| After 24 hours | Team | Follow-up reminder ("ignore if you've already been in touch"). |
+| After 2 days | Enquirer | Gentle check-in with the phone numbers. |
+
+Newsletter sign-ups (`api/subscribe.js`) receive a welcome email, the team gets a notification, and the subscriber is added to the Resend audience if `RESEND_AUDIENCE_ID` is set.
+
+The team alert is sent first and has to succeed. If it fails, the form opens the visitor's email app with the enquiry already filled in, so no lead is lost. Every email carries an idempotency key, so retries never send duplicates. Emails are templated in `api/_templates.js`.
+
+To test locally, run `npm run dev`. Without a `RESEND_API_KEY`, emails are logged to the terminal instead of being sent.
 
 ## Domain (GoDaddy → Vercel)
 
@@ -44,7 +61,8 @@ Delete any other `A` record on `@`, such as GoDaddy's parking record. Vercel iss
 - Each page has its own title, meta description, canonical URL, Open Graph and Twitter tags.
 - JSON-LD structured data: `ProfessionalService`/`AccountingService` (address, phone, opening hours), `WebSite`, breadcrumbs and a page type for every page.
 - `robots.txt`, `sitemap.xml`, favicons, an Apple touch icon, a web manifest and a 1200×630 social share image.
-- Language selector: English, French, Spanish, German, Portuguese, Italian, Arabic, Chinese, Japanese, Korean, Twi, Ga and Igbo (Google Translate).
+- Language selector includes Twi, Ga and Igbo alongside English, French, Spanish, German, Portuguese, Italian, Arabic, Chinese, Japanese and Korean.
+- Design: the original layout, recoloured to the proposal deck's plum and gold. `static/css/enhance.css` sets Georgia headlines, a 16px text minimum and removes eyebrow labels.
 - Images converted to WebP (12 MB → 1.5 MB). Below-the-fold images lazy-load. Fonts load via `<link>` with preconnect instead of a CSS `@import`.
 
 After launch, add the site to Google Search Console and Bing Webmaster Tools and submit `https://mansora-consulting.com/sitemap.xml`. Then create a Google Business Profile for the Haatso Bohye office.

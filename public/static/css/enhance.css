@@ -1,0 +1,95 @@
+/* =========================================================
+   MANSORA readability layer (loaded after style.css)
+   - Headlines in Georgia, as in the Corporate Service & Pricing Proposal deck
+   - No eyebrow labels or "scroll to explore" prompts
+   - Nothing smaller than 16px
+   Kept in its own file because style.css has unclosed braces that
+   would swallow rules appended to it.
+   ========================================================= */
+
+:root {
+    --mansora-serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --mansora-gold: #c48b17;
+    --mansora-gold-text: #9a6a0b;
+}
+
+/* ---------- Deck typography: serif headlines ---------- */
+h1, h2,
+.hero-title, .hero-title span,
+.brand-main {
+    font-family: var(--mansora-serif) !important;
+    letter-spacing: -0.005em;
+}
+.brand-main { letter-spacing: .03em; }
+
+/* ---------- Remove eyebrows and scroll prompts ---------- */
+.section-label,
+.hero-tag, .hero-scroll,
+.about-hero-label, .about-scroll-indicator, .about-card-content > span:first-child, .about-value-number,
+.services-hero-tag, .services-hero-scroll, .service-label,
+.approach-hero-tag, .approach-scroll-indicator, .approach-step-label,
+.why-eyebrow, .why-scroll-indicator, .why-section-label, .why-principle-content > span:first-child,
+.who-eyebrow, .who-scroll, .who-intro-label, .who-client-content > span:first-child, .who-client-tag,
+.who-section-label, .who-values-heading > span, .who-promise-content > span:first-child, .who-final-label,
+.contact-hero-badge, .hero-scroll-indicator, .contact-section-tag, .intro-mini-label,
+.form-heading > span:first-child, .contact-info-heading > span:first-child, .map-heading > span:first-child,
+.booking-content > span:first-child, .newsletter-copy > span:first-child {
+    display: none !important;
+}
+
+/* ---------- 16px minimum ---------- */
+body { font-size: 1.0625rem; }
+
+.brand-service,
+.nav-link, .nav-link b, .nav-contact-link, .nav-contact-link b,
+.nav-back-home, .back-home-text, .back-home-arrow,
+.language-toggle, .language-toggle span, .language-menu a,
+.btn, a.btn, .booking-button, .contact-scroll-btn, .mansora-submit, .submit-text, .submit-icon,
+.newsletter-form button, .newsletter-form button span, .newsletter-form small, #newsletterMessage,
+.connect-label, .connect-platform-text strong, .connect-platform-text small, .mansora-connect-menu b,
+.value-number, .value-card p,
+.about-card-content p, .about-value-card p,
+.service-list, .service-list div, .service-list li,
+.approach-step-footer, .approach-step-footer span,
+.who-value span, .who-client-content p,
+.hero-floating-card, .hero-floating-card span,
+.form-field label, .form-field small, .form-bottom p, .form-success span,
+.contact-info-card p, .contact-info-card b, .map-overlay-card span,
+.footer-tagline, .footer-values, .footer-copyright, .footer-quick-links a {
+    font-size: max(1rem, 1em) !important;
+}
+
+/* Larger body copy where the original was tight */
+.value-card p, .about-value-card p, .contact-info-card p, .who-client-content p,
+.service-list div, .service-list li, .about-card-content p { font-size: 1.0625rem !important; line-height: 1.6; }
+.btn, a.btn, .booking-button, .mansora-submit, .submit-text { font-size: 1.0625rem !important; letter-spacing: .01em; }
+.nav-link, .nav-contact-link { white-space: nowrap; }
+.footer-tagline { font-family: var(--mansora-serif); font-size: 1.25rem !important; color: var(--mansora-gold) !important; }
+
+/* Sentence case instead of shouting labels */
+.form-field label { text-transform: lowercase; letter-spacing: 0 !important; font-weight: 700; }
+.form-field label::first-letter { text-transform: uppercase; }
+.form-field label small { text-transform: lowercase; font-weight: 400; }
+.connect-label, .footer-values, .hero-floating-card, .map-overlay-card span, .contact-info-card b,
+.approach-step-footer span { letter-spacing: .02em !important; }
+
+/* Hidden Google Translate host + spam honeypot */
+.visually-hidden-translate { display: none !important; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---------- Readable section headings ----------
+   The original used a pale grey-to-white gradient, which washed the text out. */
+.section-heading h2 {
+    background: linear-gradient(135deg, #38145c 0%, #5c2d85 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+}
+.section-heading h2 .gradient-text {
+    background: linear-gradient(90deg, #9a6a0b 0%, #c48b17 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+}
+.section-heading h2::after { background: linear-gradient(90deg, #c48b17, #e6b74c) !important; }
+.nav-back-home, .back-home-text { white-space: nowrap; }

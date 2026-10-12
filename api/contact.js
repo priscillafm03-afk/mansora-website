@@ -1,6 +1,14 @@
-// POST /contact (rewritten to /api/contact in vercel.json). Receives the Contact Us form.
-import { clean, escapeHtml, isEmail, json, readForm, sendMail } from "./_mail.js";
+// POST /api/contact: the enquiry workflow behind the Contact Us form.
+//
+//   1. Validate and de-spam the submission.
+//   2. Instantly alert the team (reply / call / WhatsApp buttons).        <- must succeed
+//   3. Instantly send the enquirer a branded confirmation with their reference.
+//   4. Schedule a team follow-up reminder (TEAM_REMINDER_HOURS, default 24h).
+//   5. Schedule a gentle client follow-up (FOLLOW_UP_DAYS, default 2 days).
+import { clean, env, hoursFromNow, isEmail, json, mailConfigured, readForm, reference, sendEmail, TEAM_EMAILS } from "./_mail.js";
+import { clientConfirmation, clientFollowUp, teamAlert, teamReminder } from "./_templates.js";
 
+// Options in the Contact Us form's "What can we help with?" list.
 const SERVICES = new Set([
   "Business Advisory",
   "Financial & Accounting Support",
@@ -13,29 +21,58 @@ export async function POST(request) {
   const form = await readForm(request);
   if (form instanceof Response) return form;
 
-  // Honeypot: bots fill hidden fields, people don't.
-  if (clean(form.get("company_website"), 200)) return json(200, { ok: true });
+  // Honeypot: bots fill hidden fields, people don't. Pretend success.
+  if (clean(form.get("company_website"), 200)) return json(200, { ok: true, reference: "received" });
 
-  const name = clean(form.get("name"), 120);
-  const email = clean(form.get("email"), 254);
-  const service = clean(form.get("service"), 80);
-  const phone = clean(form.get("phone"), 40);
-  const message = clean(form.get("message"), 5000);
+  const lead = {
+    ref: reference(),
+    name: clean(form.get("name"), 120),
+    email: clean(form.get("email"), 254).toLowerCase(),
+    phone: clean(form.get("phone"), 40),
+    service: clean(form.get("service"), 80),
+    message: clean(form.get("message"), 5000),
+    receivedAt: new Date().toLocaleString("en-GB", { timeZone: "Africa/Accra", dateStyle: "medium", timeStyle: "short" }) + " (Accra time)",
+  };
 
-  if (!name || !isEmail(email) || !SERVICES.has(service) || !message) {
-    return json(400, { ok: false, error: "Please fill in your name, a valid email, a service and a message" });
+  const errors = [];
+  if (!lead.name) errors.push("your name");
+  if (!isEmail(lead.email)) errors.push("a valid email address");
+  if (!SERVICES.has(lead.service)) errors.push("the area you need help with");
+  if (!lead.message) errors.push("a short message");
+  if (errors.length) return json(400, { ok: false, error: `Please add ${errors.join(", ")}.` });
+  if (lead.phone && !/^[+()\d\s.-]{6,40}$/.test(lead.phone)) return json(400, { ok: false, error: "Please check your phone number." });
+
+  if (!mailConfigured()) {
+    console.error("Enquiry received but email is not configured", lead.ref);
+    return json(503, { ok: false, error: "Email is not configured", fallback: "mailto" });
   }
-  if (phone && !/^[+()\d\s.-]{6,40}$/.test(phone)) {
-    return json(400, { ok: false, error: "Please enter a valid phone number" });
+
+  const team = TEAM_EMAILS();
+  const key = (step) => `${lead.ref}-${step}`;
+
+  // 2. Team alert first: this is the one that must not be lost.
+  const alert = teamAlert(lead);
+  const alertResult = await sendEmail({ to: team, replyTo: lead.email, idempotencyKey: key("alert"), tags: [{ name: "flow", value: "enquiry_alert" }], ...alert });
+  if (!alertResult.ok) {
+    return json(502, { ok: false, error: "We couldn't send your message just now.", fallback: "mailto" });
   }
 
-  const row = (k, v) => `<tr><td style="padding:4px 12px 4px 0;color:#667085">${k}</td><td>${escapeHtml(v || "-")}</td></tr>`;
-  return sendMail({
-    subject: `New enquiry: ${service} (${name})`.replace(/[\r\n]/g, " "),
-    replyTo: email,
-    html: `<h2>New website enquiry</h2><table>${row("Name", name)}${row("Email", email)}${row("Phone", phone)}${row("Service", service)}</table>
-<p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
-  });
+  // 3–6 run together; a failure here is logged but doesn't fail the enquiry.
+  const reminderHours = Number(env("TEAM_REMINDER_HOURS", "24"));
+  const followDays = Number(env("FOLLOW_UP_DAYS", "2"));
+  const tasks = [
+    sendEmail({ to: lead.email, replyTo: team, idempotencyKey: key("confirm"), tags: [{ name: "flow", value: "enquiry_confirm" }], ...clientConfirmation(lead) }),
+    reminderHours > 0
+      ? sendEmail({ to: team, replyTo: lead.email, scheduledAt: hoursFromNow(reminderHours), idempotencyKey: key("reminder"), tags: [{ name: "flow", value: "enquiry_reminder" }], ...teamReminder(lead) })
+      : Promise.resolve({ ok: true, skipped: true }),
+    followDays > 0
+      ? sendEmail({ to: lead.email, replyTo: team, scheduledAt: hoursFromNow(followDays * 24), idempotencyKey: key("followup"), tags: [{ name: "flow", value: "enquiry_followup" }], ...clientFollowUp(lead) })
+      : Promise.resolve({ ok: true, skipped: true }),
+  ];
+  const [confirm, reminder, followUp] = await Promise.all(tasks);
+  console.log(JSON.stringify({ event: "enquiry", ref: lead.ref, service: lead.service, alert: alertResult.ok, confirm: confirm.ok, reminder: reminder.ok, followUp: followUp.ok }));
+
+  return json(200, { ok: true, reference: lead.ref, confirmationSent: confirm.ok });
 }
 
 export function GET() {
