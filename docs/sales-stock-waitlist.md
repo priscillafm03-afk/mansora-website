@@ -10,8 +10,16 @@ On 2026-11-11 the live homepage matched this commit byte for byte, SHA-256
 Live main.js also matched, SHA-256
 `51363d72c0a23676f9aae61ad52619504c0cc1ab4fe085f5a1c60a608b82cf0d`.
 No other branches or open PRs existed before work. Recheck before release.
-Hosting-project linkage is not yet verified: the connected Vercel scopes list no
-website project, and GitHub deployments access is unavailable to the integration.
+GitHub main's Vercel deployment status identifies the hosting project as
+`https://vercel.com/mansora/mansora-website`, project ID
+`prj_Ut9FDUqBrj084D2ZCZ5yU0DdF773`. The PR's Vercel bot confirms that same team
+`team_X3ap3DDgjZnI1UYLnkvTB6xf` and project. Corrected commit attribution to the
+connected GitHub account unblocked the automatic preview, which Vercel reports
+Ready. Preview: `https://mansora-website-git-codex-sales-stock-waitlist-mansora.vercel.app/sales-stock`.
+The preview requires Vercel Authentication. The connected API returns 404 for
+this exact project/deployment despite listing that team, so settings/secret
+access and authenticated live-form verification remain blocked. Protection has
+not been disabled and no public bypass link has been created.
 
 App coordination is in **PeterAshiagbor/Mansora**, `docs/codex-tasks.md` and
 [issue #39](https://github.com/PeterAshiagbor/Mansora/issues/39).
@@ -137,7 +145,7 @@ Before merging or deploying, coordinate in issue #39 and with the website owner:
 5. Merge/deploy only after coordination. Recheck production routes and a labelled
    test request, verify its stored record, then remove it through the private tool.
 
-At implementation time: local backend and browser tests pass. **Live waitlist
+At implementation time: 13 local backend checks and 10 browser checks pass. **Live waitlist
 persistence, production configuration and deployment are not yet verified.** The
 production URL does not serve this branch. Contact/newsletter handlers, DNS and
 hosting settings are unchanged by this branch.
