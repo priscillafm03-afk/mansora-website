@@ -7,7 +7,11 @@
       const active = tab === selected;
       tab.setAttribute('aria-selected', String(active));
       tab.tabIndex = active ? 0 : -1;
-      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+      const panel = document.getElementById(tab.getAttribute('aria-controls'));
+      // Once requested, finish loading a screen even if the visitor switches away
+      // before the browser's lazy-load observation runs.
+      if (active) panel.querySelector('img').loading = 'eager';
+      panel.hidden = !active;
     }
     if (moveFocus) selected.focus();
   };
