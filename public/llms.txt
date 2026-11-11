@@ -31,3 +31,8 @@
 - [Why MANSORA](https://mansora-consulting.com/why-mansora)
 - [Who We Serve](https://mansora-consulting.com/who-we-serve)
 - [Contact Us](https://mansora-consulting.com/contact-us)
+
+## Sales & Stock (early access)
+- [Product and waiting list](https://mansora-consulting.com/sales-stock)
+- Desktop offline selling; current hosted browser access requires internet. Physical hardware acceptance, signed installers and live payment-provider approval are not complete.
+- [Existing-user sign-in](https://app.mansora-consulting.com)

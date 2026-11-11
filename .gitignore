@@ -5,3 +5,7 @@ node_modules/
 !.env.example
 .DS_Store
 Thumbs.db
+
+test-results/
+playwright-report/
+waitlist-export*.json
