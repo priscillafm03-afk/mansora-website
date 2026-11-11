@@ -94,3 +94,15 @@ After launch, add the site to Google Search Console and Bing Webmaster Tools and
 - Headers: HSTS, CSP, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy, Permissions-Policy, COOP.
 - The CSP has to allow `'unsafe-inline'` and `'unsafe-eval'` in `script-src` because Google Translate needs them. The site has no logins or user-generated content, so the risk is low. If the language selector is ever removed, take both out.
 - Form endpoints check that requests come from the site itself, cap body size, rate-limit by IP, validate every field, escape HTML in outgoing email and include a honeypot field to catch bots. Secrets are kept only in Vercel environment variables.
+
+## Mansora Sales & Stock early access
+
+`/sales-stock` introduces the product; `/waitlist` saves early-access requests in
+separate private persistent storage before reporting success. It never subscribes
+people to the newsletter or provisions app users. See
+[the implementation, operations and release handoff](docs/sales-stock-waitlist.md)
+for configuration, consent/retention, private exports/removal and the release gate.
+
+Run `npm ci`, `npm test` (requires redis-server/redis-cli) and
+`npm run test:browser` (requires Playwright Chromium). The form returns an honest
+503 until its dedicated storage is configured, including during local preview.

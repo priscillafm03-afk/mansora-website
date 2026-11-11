@@ -7,7 +7,8 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/contact", "destination": "/api/contact" },
-    { "source": "/subscribe", "destination": "/api/subscribe" }
+    { "source": "/subscribe", "destination": "/api/subscribe" },
+    { "source": "/waitlist", "destination": "/api/waitlist" }
   ],
   "redirects": [
     { "source": "/index", "destination": "/", "permanent": true },
