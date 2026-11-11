@@ -13,9 +13,9 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('/sales-stock');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Know your sales.');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('Manage sales.');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole('link', { name: 'Join the waiting list' }).click();
+    await page.locator('.ss-hero').getByRole('link', { name: 'Join the waiting list' }).click();
     await expect(page.locator('#waitlist-name')).toBeInViewport();
     await expect(page.locator('#waitlist-consent')).not.toBeChecked();
     const audit = await new AxeBuilder({ page }).include('.ss-page').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
@@ -25,7 +25,7 @@ for (const width of [320, 390, 768, 1024, 1440]) {
 }
 test('homepage and navigation lead to product; keyboard reaches the waiting list', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Explore Sales & Stock' }).click();
+  await page.getByRole('link', { name: 'Explore Sales & Inventory' }).click();
   await expect(page).toHaveURL(/\/sales-stock$/);
   await page.keyboard.press('Tab');
   // Skip link is the first focus target on a fresh page.
@@ -90,4 +90,22 @@ test('contact and newsletter forms retain their original endpoints', async ({ pa
   await page.locator('#newsletterEmail').fill('newsletter@example.com');
   await page.locator('#newsletterForm button[type=submit]').click();
   await expect.poll(() => requests.length).toBe(2);
+});
+
+test('sample-screen tour supports pointer and keyboard, with honest sample labels', async ({ page }) => {
+  await page.goto('/sales-stock');
+  await expect(page.getByRole('navigation', { name: 'Sales and inventory page sections' })).toBeVisible();
+  await page.getByRole('tab', { name: 'Checkout', exact: true }).click();
+  await expect(page.locator('#panel-checkout')).toBeVisible();
+  await expect(page.locator('#panel-dashboard')).toBeHidden();
+  await expect(page.locator('#panel-checkout img')).toHaveAttribute('src', /checkout.webp$/);
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('tab', { name: 'Stock', exact: true })).toBeFocused();
+  await expect(page.locator('#panel-stock')).toBeVisible();
+  await page.keyboard.press('Home');
+  await expect(page.getByRole('tab', { name: 'Dashboard', exact: true })).toBeFocused();
+  await expect(page.locator('#panel-dashboard')).toBeVisible();
+  await expect(page.locator('.ss-tour-note')).toContainText('synthetic sample records');
+  const images = await page.locator('.ss-tour-panel img').evaluateAll(images => Promise.all(images.map(async image => { if (!image.complete) await image.decode(); return image.naturalWidth; })));
+  expect(images).toEqual([1366, 1366, 1366]);
 });

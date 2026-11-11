@@ -6,6 +6,14 @@
   }, true);
   const form = document.getElementById('sales-stock-waitlist');
   if (!form) return;
+  document.querySelectorAll('a[href="#waiting-list"]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      form.elements.name.focus({ preventScroll: true });
+      form.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }, true);
+  });
   const button = form.querySelector('button[type="submit"]');
   const result = document.getElementById('waitlist-result');
   let busy = false;

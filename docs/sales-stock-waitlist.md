@@ -145,7 +145,27 @@ Before merging or deploying, coordinate in issue #39 and with the website owner:
 5. Merge/deploy only after coordination. Recheck production routes and a labelled
    test request, verify its stored record, then remove it through the private tool.
 
-At implementation time: 13 local backend checks and 10 browser checks pass. **Live waitlist
+At implementation time: 13 local backend checks and 11 browser checks pass. **Live waitlist
 persistence, production configuration and deployment are not yet verified.** The
 production URL does not serve this branch. Contact/newsletter handlers, DNS and
 hosting settings are unchanged by this branch.
+
+## Bespoke page refinement (2026-11-11)
+
+Owner asked for a shorter name. Page/navigation label is **Sales & Inventory**;
+headline is **Manage sales. Track stock.** Product identity remains Mansora Sales
+& Stock, with the same canonical `/sales-stock` URL and consent wording.
+
+The product tour uses WebP copies of the app's committed synthetic walkthrough
+screens `docs/screenshots/10-dashboard.jpg`, `02-checkout.jpg` and `12-stock.jpg`
+from the source snapshot above. No client account or real customer records were
+used. Screens are explicitly labelled sample data, and the public sample link
+explains its non-persistent/payment-free behaviour. Images total about 177KB,
+are dimensioned and lazy loaded; visitors can open a larger view.
+
+Tabs support pointer and Arrow/Home/End keyboard operation with roving focus,
+selected state and labelled panels. In-page shortcuts and a three-step pilot
+explanation make the dedicated page easier to navigate. Waiting-list CTAs focus
+the first form field directly, including on phones. Verification: 11 browser
+checks pass, including the tour and the previous real-persistence scenarios.
+The unchanged backend's 13 checks passed before this refinement.
