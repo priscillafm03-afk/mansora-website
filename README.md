@@ -67,6 +67,23 @@ The lead sheet is written by a Google Apps Script web app owned by priscilla@man
 - Live: `RESEND_API_KEY=... npm run test:live` sends a `[TEST]` enquiry, prints each step, checks Resend and cancels the scheduled test emails. Add `-- --newsletter` to test the sign-up too.
 - Local: `npm run dev` logs emails to the terminal instead of sending them.
 
+## Software demo requests (`/request-demo`)
+
+Requests for a demo of **Mansora Sales & Stock** go to the Mansora platform's **Leads**, not to the consulting
+enquiry flow (owner decision, 14 November 2026). The Contact Us form is unchanged.
+
+- `public/request-demo.html` + `public/static/js/demo.js`: the form. One submission id per form fill, reused on retry.
+- `api/demo.js` (`/demo`): validates, then forwards server to server to the platform, signed with
+  `DEMO_INTAKE_SECRET`. It sends **no** email: the platform saves the lead first, then sends the branded
+  confirmation, team alert and follow-ups. Success is shown only once the platform has saved the request.
+
+| Variable | Purpose |
+|----------|---------|
+| `DEMO_INTAKE_SECRET` | required: the same random value as `DEMO_INTAKE_SECRET` on the platform (Railway) |
+| `PLATFORM_DEMO_URL` | optional, default `https://app.mansora-consulting.com/api/v1/public/demo-requests` |
+
+Tests: `npm test` (Node's built-in test runner, no dependencies).
+
 ## Domain (GoDaddy → Vercel)
 
 In Vercel, go to **Settings → Domains**, add `mansora-consulting.com` and `www.mansora-consulting.com`, and make the apex domain primary. Then add these DNS records in GoDaddy:
