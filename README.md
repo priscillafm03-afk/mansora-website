@@ -1,4 +1,4 @@
-# MANSORA Consulting & Business Solutions: website
+# MANSORA Consulting & Business Solutions Limited: website
 
 Static site for **mansora-consulting.com**, moved from the Flask/Render app (`mansora-1.onrender.com`) to Vercel.
 

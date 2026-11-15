@@ -33,7 +33,7 @@ function shell({ preheader, body, footerNote = "" }) {
   <tr><td style="padding:0 0 18px;">
     <table role="presentation" cellpadding="0" cellspacing="0"><tr>
       <td style="padding-right:14px;"><img src="${site}/static/images/logo-192.png" width="64" height="64" alt="MC&amp;BS" style="display:block;border-radius:12px;"></td>
-      <td><div style="font:700 22px/1.1 ${SERIF};color:${C.plum};letter-spacing:.02em;">MANSORA</div><div style="font:400 16px/1.3 ${SANS};color:${C.muted};">Consulting &amp; Business Solutions</div></td>
+      <td><div style="font:700 22px/1.1 ${SERIF};color:${C.plum};letter-spacing:.02em;">MANSORA</div><div style="font:400 16px/1.3 ${SANS};color:${C.muted};">Consulting &amp; Business Solutions Limited</div></td>
     </tr></table>
   </td></tr>
   <tr><td style="background:#ffffff;border:1px solid ${C.line};border-radius:24px;padding:32px 30px;">${body}</td></tr>
@@ -53,8 +53,8 @@ const firstName = (name) => String(name).trim().split(/\s+/)[0] || "there";
 export function teamAlert(lead) {
   const wa = whatsappNumber(lead.phone);
   const replySubject = encodeURIComponent(`Re: your MANSORA enquiry (${lead.ref})`);
-  const replyBody = encodeURIComponent(`Dear ${firstName(lead.name)},\n\nThank you for contacting MANSORA Consulting & Business Solutions.\n\n`);
-  const waText = encodeURIComponent(`Hello ${firstName(lead.name)}, this is MANSORA Consulting & Business Solutions following up on your enquiry (${lead.ref}).`);
+  const replyBody = encodeURIComponent(`Dear ${firstName(lead.name)},\n\nThank you for contacting MANSORA Consulting & Business Solutions Limited.\n\n`);
+  const waText = encodeURIComponent(`Hello ${firstName(lead.name)}, this is MANSORA Consulting & Business Solutions Limited following up on your enquiry (${lead.ref}).`);
   const body = `
     ${h(`New enquiry from ${e(lead.name)}`)}
     ${p(`<strong>${e(lead.service)}</strong>${lead.phone ? ` • ${e(lead.phone)}` : ""}`, `color:${C.muted};`)}
@@ -93,7 +93,7 @@ export function clientConfirmation(lead) {
   const site = SITE_URL();
   const body = `
     ${h(`Thank you, ${e(firstName(lead.name))}. We've received your enquiry.`)}
-    ${p(`Thank you for contacting <strong>MANSORA Consulting &amp; Business Solutions</strong>. A member of our team will be in touch shortly.`)}
+    ${p(`Thank you for contacting <strong>MANSORA Consulting &amp; Business Solutions Limited</strong>. A member of our team will be in touch shortly.`)}
     ${p(`Your reference is <strong style="color:${C.plum};">${e(lead.ref)}</strong>.`)}
     ${box(`
       <div style="font:700 16px/1.3 ${SANS};color:${C.goldText};margin-bottom:8px;">You asked about</div>
@@ -116,7 +116,7 @@ export function clientConfirmation(lead) {
   return {
     subject: `We've received your enquiry, ${firstName(lead.name)} [${lead.ref}]`,
     html: shell({ preheader: `Thank you for contacting MANSORA. Your reference is ${lead.ref}.`, body }),
-    text: `Thank you, ${firstName(lead.name)}. We've received your enquiry (${lead.ref}).\n\nYou asked about: ${lead.service}${PACKAGE_NAMES[lead.package] ? " (" + PACKAGE_NAMES[lead.package] + ")" : ""}.\n\nWhat happens next:\n1. A short discovery and scoping conversation\n2. We agree the support you need, onboarding and your fee\n3. We get to work\n\nCall us: ${PHONES.join(", ")}\nReply to this email to add anything.\n\nMANSORA Consulting & Business Solutions: We Make Your Business Better.`,
+    text: `Thank you, ${firstName(lead.name)}. We've received your enquiry (${lead.ref}).\n\nYou asked about: ${lead.service}${PACKAGE_NAMES[lead.package] ? " (" + PACKAGE_NAMES[lead.package] + ")" : ""}.\n\nWhat happens next:\n1. A short discovery and scoping conversation\n2. We agree the support you need, onboarding and your fee\n3. We get to work\n\nCall us: ${PHONES.join(", ")}\nReply to this email to add anything.\n\nMANSORA Consulting & Business Solutions Limited: We Make Your Business Better.`,
   };
 }
 
